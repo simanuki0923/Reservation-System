@@ -1,0 +1,215 @@
+h1 {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 36px;
+    color: #000000;
+}
+
+/* Container for the entire mypage layout */
+.mypage-container {
+    display: flex;
+    padding: 5px;
+    max-width: 1200px;
+    margin: 0 auto;
+    flex-wrap: wrap;
+}
+
+/* Reservations Section Styling */
+.reservations {
+    width: 48%;
+    color: black;
+    font-size: 20px;
+    margin-right: 2%;
+}
+
+.reservation-card {
+    padding: 20px;
+    margin-bottom: 20px;
+    background-color: #f9f9f9;
+    /* Light background for the reservation card */
+    border-radius: 8px;
+    /* Rounded corners */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    /* Subtle shadow */
+}
+
+.reservation-details {
+    background-color: #007bff;
+    color: white;
+    padding: 20px;
+    /* Consistent padding */
+    border-radius: 8px;
+    margin-bottom: 20px;
+    font-size: 15px;
+    height: auto;
+    /* Adjusts to content height */
+}
+
+.reservation-details h3 {
+    margin-top: 0;
+    font-size: 18px;
+    /* Slightly smaller heading */
+}
+
+.reservation-details p {
+    margin: 0;
+    padding: 5px 0;
+}
+
+.reservation-value {
+    text-align: left;
+    margin-left: 80px;
+    /* Space between label and value */
+}
+
+/* Favorites Section Styling */
+.favorites {
+    width: 48%;
+    color: black;
+    font-size: 20px;
+}
+
+.favorite-cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    overflow-x: auto;
+}
+
+.card {
+    width: 250px;
+    background: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, .2);
+    margin: 5px;
+}
+
+.card__imgframe {
+    width: 100%;
+    height: auto;
+}
+
+.card__textbox {
+    padding: 10px;
+    background: #fff;
+    box-sizing: border-box;
+}
+
+.card__titletext {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.card__overviewtext {
+    font-size: 12px;
+    line-height: 150%;
+}
+
+/* Button Group Styling */
+.btn-group {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10px 10px;
+}
+
+/* Primary Button Styling */
+.btn-primary {
+    background-color: rgba(0, 123, 255, 0.8);
+    border: none;
+    padding: 10px 15px;
+    color: white;
+    font-size: 1rem;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+/* Favorite Button Styling */
+.favorite-button {
+    border: none;
+    padding: 10px 20px;
+    color: white;
+    text-align: center;
+    font-size: 1rem;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+    background-color: transparent;
+    box-shadow: none;
+}
+
+/* Icon Styling */
+.iconheart_red,
+.iconheart_gray {
+    width: 30px;
+    height: 30px;
+    object-fit: contain;
+    border: none;
+    cursor: pointer;
+}
+
+.icon_cancel {
+    width: 30px;
+    height: 30px;
+    object-fit: contain;
+    border: none;
+    position: absolute;
+    right: 830px;
+    /* Adjusted position */
+    top: 280px;
+    /* Adjusted position */
+    cursor: pointer;
+}
+
+.btn-danger {
+    background: none;
+    border: none;
+    padding: 0;
+    
+}
+
+/* Modal Styling */
+.modal-content {
+    border-radius: 8px;
+    background-color: hwb(228 5% 6% / 0.923);
+    
+}
+
+.modal-header {
+    border-bottom: none;
+    color: #fff;
+    font-size: 20px;
+    padding-top: 5px;
+    padding-left: 20px;
+    
+}
+
+.modal-body {
+    padding: 20px;
+    color: #fff;
+    font-size: 15px;
+    
+
+}
+
+
+
+.form-control p {
+    margin: 0;
+    padding: 5px 0;
+    
+}
+
+/* Input field styling */
+.form-control {
+
+    /* Space below input fields */
+    text-align: left;
+    margin-left: 80px;
+    width: 100px;
+}
+
+
+

@@ -1,0 +1,91 @@
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    padding: 0 20px;
+}
+
+.container {
+
+
+    background-color: #007bff;
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 450px;
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+}
+
+h1 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    text-align: center;
+}
+
+.alert.alert-success {
+    background-color: #28a745;
+
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-label {
+    color: white;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.form-control {
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    box-sizing: border-box;
+    width: 100px;
+}
+
+select.form-control {
+    width: 150px;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+textarea.form-control {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+button.btn.btn-primary {
+    background-color: hsl(231, 100%, 49%);
+    border: none;
+    padding: 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    color: white;
+    font-size: 15px;
+    text-align: center;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        padding: 15px;
+    }
+
+    .form-control {
+        width: 100%;
+    }
+}
