@@ -25,7 +25,7 @@ class Reservation extends Model
 
     public function restaurant()
     {
-        return $this->belongsTo(Restaurant::class);
+        return $this->belongsTo(Store::class, 'store_id'); // 'store_id' はリレーションのカラム名
     }
 
     public function reviews()

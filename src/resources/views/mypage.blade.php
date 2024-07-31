@@ -8,7 +8,6 @@
     <h1>{{ Auth::user()->name }}さん</h1>
 
     <div class="mypage-container">
-        <!-- 予約情報セクション -->
         <div class="reservations">
             <h2>予約状況</h2>
             @if($reservations->isEmpty())
@@ -17,14 +16,18 @@
                 @foreach ($reservations as $reservation)
                     <div class="reservation-card">
                         <div class="reservation-details">
+                            <form action="{{ route('reservation.destroy', $reservation->id) }}" method="POST" class="mt-2">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="reservation-value">
+                            <p>☒</p></button> 
                             <h3>予約</h3>
+                        </form>
                             <p>Shop <span class="reservation-value">{{ $reservation->restaurant->name }}</span></p>
                             <p>Date <span class="reservation-value">{{ $reservation->reservation_date->format('Y-m-d') }}</span></p>
                             <p>Time <span class="reservation-value">{{ $reservation->reservation_time->format('H:i') }}</span></p>
                             <p>Number <span class="reservation-value">{{ $reservation->number_of_people }}人</span></p>
                         </div>
-
-                        <!-- Edit Reservation Modal -->
                         <div class="modal fade" id="editReservationModal{{ $reservation->id }}" tabindex="-1" aria-labelledby="editReservationModalLabel{{ $reservation->id }}" aria-hidden="true">
                             <div class="modal-dialog">
                                 <div class="modal-content">
@@ -55,20 +58,10 @@
                             </div>
                         </div>
 
-                        <!-- Delete Reservation Form -->
-                        <form action="{{ route('reservation.destroy', $reservation->id) }}" method="POST" class="mt-2">
-                            @csrf
-                            @method('DELETE')
-                            <button type="submit" class="btn btn-danger">
-                                <img class="icon_cancel" src="{{ asset('img/cancel.png') }}" alt="Cancel">
-                            </button> 
-                        </form>
                     </div>
                 @endforeach
             @endif
         </div>
-
-        <!-- お気に入りセクション -->
         <div class="favorites">
             <h2>お気に入り店舗</h2>
             @if($favorites->isEmpty())
@@ -90,9 +83,9 @@
                                        @csrf
                                        <button type="submit" class="btn btn-warning favorite-button">
                                     @if(auth()->check() && auth()->user()->favorites()->where('restaurant_id', $favorite->restaurant->id)->exists())
-                                        <img class="iconheart_gray" src="{{ asset('img/heart_gray.png') }}" alt="お気に入り削除">
+                                        <img class="iconheart_red" src="{{ asset('img/heart_red.png') }}" alt="お気に入り削除">
                                     @else
-                                        <img class="iconheart_red" src="{{ asset('img/heart_red.png') }}" alt="お気に入り">
+                                        <img class="iconheart_gray" src="{{ asset('img/heart_gray.png') }}" alt="お気に入り">
                                     @endif
                                    </button>
                                  </form>  

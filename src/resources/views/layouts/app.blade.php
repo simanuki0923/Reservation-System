@@ -16,7 +16,6 @@
     <div class="hamburger-menu">
         <input type="checkbox" id="menu-btn-check">
         <label for="menu-btn-check" class="menu-btn"><span></span></label>
-        <!--ここからメニュー-->
         <div class="menu-content">
             <ul>
                 <li class="nav__item"><a class="nav__item-link" href="/">Home</a></li>

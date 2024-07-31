@@ -54,7 +54,7 @@
                                 @if(auth()->check() && auth()->user()->favorites()->where('restaurant_id', $restaurant->id)->exists())
                                     <img class="iconheart_red" src="{{ asset('img/heart_red.png') }}">
                                 @else
-                                    <img class="iconheart_red" src="{{ asset('img/heart.png') }}">
+                                    <img class="iconheart_gray" src="{{ asset('img/heart_gray.png') }}">
                                 @endif
                             </button>
                         </form>

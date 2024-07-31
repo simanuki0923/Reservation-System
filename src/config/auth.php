@@ -40,6 +40,13 @@ return [
             'driver' => 'session',
             'provider' => 'users',
         ],
+	// 追加ここから
+        'admin' => [
+            'driver' => 'session',
+            'provider' => 'admins',
+        ],
+       
+	// 追加ここまで
     ],
 
     /*
@@ -64,11 +71,13 @@ return [
             'driver' => 'eloquent',
             'model' => App\Models\User::class,
         ],
-
-        // 'users' => [
-        //     'driver' => 'database',
-        //     'table' => 'users',
-        // ],
+	// 追加ここから
+        'admins' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Admin::class,
+        ],
+        
+	// 追加ここまで
     ],
 
     /*

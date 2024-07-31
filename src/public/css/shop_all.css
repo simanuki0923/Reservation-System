@@ -9,10 +9,8 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    /* Center the rows within the container */
     width: 100%;
     margin: 0 auto;
-    /* Center the rows within the container */
 }
 
 .search-bar {
@@ -44,12 +42,10 @@
 .search-group .btn-primary {
     flex-grow: 0;
     margin-left: 2px;
-    /* 隣との間隔を2pxに設定 */
     background-color: #f8f9fa;
     color: #fff;
     border: 1px solid #ced4da;
     padding: 8px 20px;
-    /* 高さを2px下げる */
     text-align: center;
     font-size: 1rem;
     border-radius: 4px;
@@ -128,7 +124,6 @@
     border-radius: 5px;
     text-decoration: none;
     transition: background-color 0.3s ease;
-
     background-color: transparent;
     outline: none;
     box-shadow: none;
@@ -142,9 +137,7 @@
     height: 30px;
     object-fit: contain;
     background-color: #fff;
-    /* Remove the background color */
     border: none;
-    /* Ensure no border is applied */
 }
 
 @media screen and (max-width: 768px) {
@@ -159,10 +152,8 @@
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
-        /* Center the rows within the container */
         width: 100%;
         margin: 0 auto;
-        /* Center the rows within the container */
     }
 
     .search-bar {
@@ -194,12 +185,10 @@
     .search-group .btn-primary {
         flex-grow: 0;
         margin-left: 2px;
-        /* 隣との間隔を2pxに設定 */
         background-color: #f8f9fa;
         color: #fff;
         border: 1px solid #ced4da;
         padding: 8px 20px;
-        /* 高さを2px下げる */
         text-align: center;
         font-size: 1rem;
         border-radius: 4px;
@@ -278,7 +267,6 @@
         border-radius: 5px;
         text-decoration: none;
         transition: background-color 0.3s ease;
-
         background-color: transparent;
         outline: none;
         box-shadow: none;
@@ -292,8 +280,6 @@
         height: 30px;
         object-fit: contain;
         background-color: #fff;
-        /* Remove the background color */
         border: none;
-        /* Ensure no border is applied */
     }
 }

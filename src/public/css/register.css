@@ -165,18 +165,7 @@ main {
             margin-right: 8px;
             vertical-align: bottom;
         }
-    
-        .iconEmail::before {
-            content: "";
-            display: inline-block;
-            width: 25px;
-            height: 25px;
-            background: url(../img/mail_icon.png)no-repeat;
-            background-size: contain;
-            margin-right: 8px;
-            vertical-align: bottom;
-        }
-    
+
         .iconPassword::before {
             content: "";
             display: inline-block;

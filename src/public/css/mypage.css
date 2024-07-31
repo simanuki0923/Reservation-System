@@ -5,7 +5,6 @@ h1 {
     color: #000000;
 }
 
-/* Container for the entire mypage layout */
 .mypage-container {
     display: flex;
     padding: 5px;
@@ -14,7 +13,6 @@ h1 {
     flex-wrap: wrap;
 }
 
-/* Reservations Section Styling */
 .reservations {
     width: 48%;
     color: black;
@@ -26,29 +24,23 @@ h1 {
     padding: 20px;
     margin-bottom: 20px;
     background-color: #f9f9f9;
-    /* Light background for the reservation card */
     border-radius: 8px;
-    /* Rounded corners */
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    /* Subtle shadow */
 }
 
 .reservation-details {
     background-color: #007bff;
     color: white;
     padding: 20px;
-    /* Consistent padding */
     border-radius: 8px;
     margin-bottom: 20px;
     font-size: 15px;
     height: auto;
-    /* Adjusts to content height */
 }
 
 .reservation-details h3 {
     margin-top: 0;
     font-size: 18px;
-    /* Slightly smaller heading */
 }
 
 .reservation-details p {
@@ -59,18 +51,14 @@ h1 {
 .reservation-value {
     text-align: left;
     margin-left: 80px;
-    /* Space between label and value */
 }
 
 button {
     background-color: #007bff;
-    /* 青色 */
     color: white;
     font-size: 20px;
     border: none;
-    /* 内側の余白 */
     border-radius: 10px;
-    /* 角を丸める */
     cursor: pointer;
 
 }
@@ -82,7 +70,6 @@ button {
     margin-left: 1px;
 }
 
-/* Favorites Section Styling */
 .favorites {
     width: 48%;
     color: black;
@@ -126,7 +113,6 @@ button {
     line-height: 150%;
 }
 
-/* Button Group Styling */
 .btn-group {
     display: flex;
     justify-content: space-between;
@@ -134,7 +120,6 @@ button {
     padding: 0 10px 10px;
 }
 
-/* Primary Button Styling */
 .btn-primary {
     background-color: rgba(0, 123, 255, 0.8);
     border: none;
@@ -146,7 +131,6 @@ button {
     transition: background-color 0.3s ease;
 }
 
-/* Favorite Button Styling */
 .favorite-button {
     border: none;
     padding: 10px 20px;
@@ -160,7 +144,6 @@ button {
     box-shadow: none;
 }
 
-/* Icon Styling */
 .iconheart_red,
 .iconheart_gray {
     width: 30px;
@@ -170,8 +153,6 @@ button {
     cursor: pointer;
 }
 
-
-
 .btn-danger {
     background: none;
     border: none;
@@ -179,7 +160,6 @@ button {
     
 }
 
-/* Modal Styling */
 .modal-content {
     border-radius: 8px;
     background-color: hwb(228 5% 6% / 0.923);
@@ -199,8 +179,6 @@ button {
     padding: 20px;
     color: #fff;
     font-size: 15px;
-    
-
 }
 
 
@@ -211,10 +189,7 @@ button {
     
 }
 
-/* Input field styling */
 .form-control {
-
-    /* Space below input fields */
     text-align: left;
     margin-left: 80px;
     width: 100px;
@@ -228,7 +203,6 @@ button {
             color: #000000;
         }
     
-        /* Container for the entire mypage layout */
         .mypage-container {
             display: flex;
             padding: 5px;
@@ -236,8 +210,7 @@ button {
             margin: 0 auto;
             flex-wrap: wrap;
         }
-    
-        /* Reservations Section Styling */
+
         .reservations {
             width: 48%;
             color: black;
@@ -249,29 +222,23 @@ button {
             padding: 20px;
             margin-bottom: 20px;
             background-color: #f9f9f9;
-            /* Light background for the reservation card */
             border-radius: 8px;
-            /* Rounded corners */
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            /* Subtle shadow */
         }
     
         .reservation-details {
             background-color: #007bff;
             color: white;
             padding: 20px;
-            /* Consistent padding */
             border-radius: 8px;
             margin-bottom: 20px;
             font-size: 15px;
             height: auto;
-            /* Adjusts to content height */
         }
     
         .reservation-details h3 {
             margin-top: 0;
             font-size: 18px;
-            /* Slightly smaller heading */
         }
     
         .reservation-details p {
@@ -282,18 +249,14 @@ button {
         .reservation-value {
             text-align: left;
             margin-left: 80px;
-            /* Space between label and value */
         }
     
         button {
             background-color: #007bff;
-            /* 青色 */
             color: white;
             font-size: 20px;
             border: none;
-            /* 内側の余白 */
             border-radius: 10px;
-            /* 角を丸める */
             cursor: pointer;
     
         }
@@ -305,7 +268,6 @@ button {
             margin-left: 1px;
         }
     
-        /* Favorites Section Styling */
         .favorites {
             width: 48%;
             color: black;
@@ -349,7 +311,6 @@ button {
             line-height: 150%;
         }
     
-        /* Button Group Styling */
         .btn-group {
             display: flex;
             justify-content: space-between;
@@ -357,7 +318,6 @@ button {
             padding: 0 10px 10px;
         }
     
-        /* Primary Button Styling */
         .btn-primary {
             background-color: rgba(0, 123, 255, 0.8);
             border: none;
@@ -369,7 +329,6 @@ button {
             transition: background-color 0.3s ease;
         }
     
-        /* Favorite Button Styling */
         .favorite-button {
             border: none;
             padding: 10px 20px;
@@ -383,7 +342,6 @@ button {
             box-shadow: none;
         }
     
-        /* Icon Styling */
         .iconheart_red,
         .iconheart_gray {
             width: 30px;
@@ -402,7 +360,6 @@ button {
     
         }
     
-        /* Modal Styling */
         .modal-content {
             border-radius: 8px;
             background-color: hwb(228 5% 6% / 0.923);
@@ -422,8 +379,6 @@ button {
             padding: 20px;
             color: #fff;
             font-size: 15px;
-    
-    
         }
     
     
@@ -434,10 +389,7 @@ button {
     
         }
     
-        /* Input field styling */
         .form-control {
-    
-            /* Space below input fields */
             text-align: left;
             margin-left: 80px;
             width: 100px;

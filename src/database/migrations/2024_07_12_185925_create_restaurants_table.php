@@ -21,7 +21,10 @@ class CreateRestaurantsTable extends Migration
             $table->text('description')->nullable();
             $table->string('image_url')->nullable();
             $table->float('average_rating')->nullable();
+            $table->unsignedBigInteger('manager_id')->nullable();
             $table->timestamps();
+
+            $table->foreign('manager_id')->references('id')->on('users')->onDelete('set null');
         });
     }
 

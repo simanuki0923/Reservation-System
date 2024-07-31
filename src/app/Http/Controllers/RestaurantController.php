@@ -10,7 +10,6 @@ use Illuminate\Support\Facades\Auth;
 
 class RestaurantController extends Controller
 {
-    //店舗フィルタリング機能
     public function index(Request $request)
     {
         $query = Restaurant::query();

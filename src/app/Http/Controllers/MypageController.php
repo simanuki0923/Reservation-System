@@ -21,10 +21,8 @@ class MypageController extends Controller
      */
     public function mypage()
     {
-        // Fetch authenticated user
         $user = Auth::user();
 
-        // Fetch user's favorites and reservations
         $favorites = Favorite::where('user_id', $user->id)->with('restaurant')->get();
         $reservations = Reservation::where('user_id', $user->id)
                                    ->with('restaurant')
@@ -51,10 +49,8 @@ class MypageController extends Controller
      */
     public function destroyReservation($id)
     {
-        // Fetch authenticated user
         $user = Auth::user();
 
-        // Find and delete the reservation if it belongs to the authenticated user
         $reservation = Reservation::findOrFail($id);
         if ($reservation->user_id == $user->id) {
             $reservation->delete();
@@ -67,8 +63,6 @@ class MypageController extends Controller
     public function updateReservation(Request $request, $id)
     {
         
-        
-
         $user = Auth::user();
         $reservation = Reservation::findOrFail($id);
 
@@ -76,7 +70,6 @@ class MypageController extends Controller
             return redirect()->route('mypage')->with('error', '予約を更新できません。');
         }
 
-        // Validate the request
         $request->validate([
             'reservation_date' => 'required|date',
             'reservation_time' => 'required|date_format:H:i',

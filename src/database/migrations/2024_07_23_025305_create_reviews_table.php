@@ -16,14 +16,14 @@ class CreateReviewsTable extends Migration
         Schema::create('reviews', function (Blueprint $table) {
         $table->id();
         $table->unsignedBigInteger('user_id');
-        $table->unsignedBigInteger('reservation_id')->nullable(); // Make this column nullable
+        $table->unsignedBigInteger('reservation_id')->nullable();
         $table->unsignedBigInteger('restaurant_id');
         $table->tinyInteger('rating')->unsigned();
         $table->text('comment')->nullable();
         $table->timestamps();
 
         $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-        $table->foreign('reservation_id')->references('id')->on('reservations')->onDelete('set null'); // Adjusted to set null if the referenced reservation is deleted
+        $table->foreign('reservation_id')->references('id')->on('reservations')->onDelete('set null');
         $table->foreign('restaurant_id')->references('id')->on('restaurants')->onDelete('cascade');
        });
         

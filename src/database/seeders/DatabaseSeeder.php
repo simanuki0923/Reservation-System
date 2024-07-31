@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\User;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -11,13 +12,15 @@ class DatabaseSeeder extends Seeder
      *
      * @return void
      */
-    public function run()
+    public function run(): void
     {
         $this->call([
            RestaurantSeeder::class,
            FavoriteSeeder::class,    
            ReservationSeeder::class,
+           AdminSeeder::class,
         ]);
+
     }
 
    

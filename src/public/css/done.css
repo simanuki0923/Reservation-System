@@ -10,100 +10,70 @@ html {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    /* Full height of the viewport */
     background-color: #f0f0f0;
-    /* Optional background color */
 }
 
 .contact-form__content {
     border: 2px solid #fff;
-    /* White border */
     padding: 20px;
     border-radius: 8px;
-    /* Rounded corners */
     background-color: #fff;
-    /* White background for the card */
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    /* Subtle shadow */
     text-align: center;
     width: 300px;
-    /* Fixed width for the card */
 }
 
 .back-button {
     background-color: blue;
-    /* Blue background */
     color: white;
-    /* White text */
     border: none;
-    /* No border */
     padding: 10px 20px;
-    /* Padding for the button */
     border-radius: 5px;
-    /* Rounded corners for the button */
     cursor: pointer;
-    /* Pointer on hover */
     margin-top: 20px;
-    /* Space above the button */
 }
 
 .back-button:hover {
     background-color: darkblue;
-    /* Darker blue on hover */
 }
 
 @media screen and (max-width: 768px) {
     body,
-        html {
-            margin: 0;
-            padding: 0;
-            height: 100%;
-        }
+    html {
+         margin: 0;
+        padding: 0;
+        height: 100%;
+    }
     
-        .contact-form__main {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            /* Full height of the viewport */
-            background-color: #f0f0f0;
-            /* Optional background color */
-        }
+    .contact-form__main {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: #f0f0f0;
+    }
     
-        .contact-form__content {
-            border: 2px solid #fff;
-            /* White border */
-            padding: 20px;
-            border-radius: 8px;
-            /* Rounded corners */
-            background-color: #fff;
-            /* White background for the card */
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            /* Subtle shadow */
-            text-align: center;
-            width: 300px;
-            /* Fixed width for the card */
-        }
+    .contact-form__content {
+        border: 2px solid #fff;
+        padding: 20px;
+        border-radius: 8px;
+        background-color: #fff;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        width: 300px;
+    }
     
-        .back-button {
-            background-color: blue;
-            /* Blue background */
-            color: white;
-            /* White text */
-            border: none;
-            /* No border */
-            padding: 10px 20px;
-            /* Padding for the button */
-            border-radius: 5px;
-            /* Rounded corners for the button */
-            cursor: pointer;
-            /* Pointer on hover */
-            margin-top: 20px;
-            /* Space above the button */
-        }
+    .back-button {
+        background-color: blue;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-top: 20px;
+    }
     
-        .back-button:hover {
-            background-color: darkblue;
-            /* Darker blue on hover */
-        }
+    .back-button:hover {
+         background-color: darkblue;
+    }
 }
