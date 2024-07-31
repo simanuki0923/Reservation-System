@@ -5,7 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Store;
 use App\Models\Admin;
-use App\Models\Reservation; 
+use App\Models\Reservation;
+use App\Models\Image; 
 use Illuminate\Support\Facades\Hash;
 
 class StoreRepresentativeController extends Controller
@@ -97,4 +98,31 @@ class StoreRepresentativeController extends Controller
 
     return redirect()->route('store.dashboard')->with('error', 'ストアが見つかりませんでした。');
 }
+
+    public function uploadForm()
+    {
+        $images = Image::all(); // 画像一覧を取得
+        return view('store.index', compact('images')); // ビューに画像一覧を渡す
+    }
+
+    public function upload(Request $request)
+    {
+        $request->validate([
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+        ]);
+
+        if ($request->hasFile('image')) {
+            $file = $request->file('image');
+            $path = $file->store('public/images');
+            $image = new Image();
+            $image->path = basename($path);
+            $image->save();
+        }
+
+        return redirect()->route('store.upload')->with('success', '画像がアップロードされました。');
+    }
+
+    
+
+    
 }
