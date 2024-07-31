@@ -25,15 +25,15 @@
         <form action="{{ route('reservation.store') }}" method="POST">
             @csrf
             <input type="hidden" name="restaurant_id" value="{{ $restaurant->id }}">
-            <div class="mb-3">
-                <label for="date" class="form-label"></label>
+            <div class="form-group">
+                <label for="date" class="form-label">日程</label>
                 <input type="date" id="date" name="date" value="{{ date('Y-m-d') }}" min="{{ date('Y-m-d') }}" max="2050-12-31" class="form-control" onchange="updateReservationDetails()" />
                 @error('reservation_date')
                    <span class="text-danger">{{ $message }}</span>
                 @enderror
             </div>
-            <div class="mb-3">
-                <label for="time" class="form-label"></label>
+            <div class="form-group">
+                <label for="time" class="form-label">時間</label>
                 <select id="time" name="time" class="form-select" onchange="updateReservationDetails()">
                     <option value="" selected>時間を選択</option>
                     <option value="17:00">17:00</option>
@@ -44,8 +44,8 @@
                    <span class="text-danger">{{ $message }}</span>
                 @enderror
             </div>
-            <div class="mb-3">
-                <label for="number_of_people" class="form-label"></label>
+            <div class="form-group">
+                <label for="number_of_people" class="form-label">人数</label>
                 <select id="number_of_people" name="number_of_people" class="form-select" onchange="updateReservationDetails()">
                     <option value="" selected>人数を選択</option>
                     <option value="1">1人</option>
@@ -57,18 +57,16 @@
                 @enderror
             </div>
             <div id="reservation-details" style="display: none;">
-        <p>Shop: {{ $restaurant->name }}</p>
-        <p>Date: <span id="reservation-date"></span></p>
-        <p>Time: <span id="reservation-time"></span></p>
-        <p>Number: <span id="reservation-number_of_people"></span>人</p>
-    </div>
+                <p>Shop: {{ $restaurant->name }}</p>
+                <p>Date: <span id="reservation-date"></span></p>
+                <p>Time: <span id="reservation-time"></span></p>
+                <p>Number: <span id="reservation-number_of_people"></span>人</p>
+            </div>
             <div class="btn-container">
                 <button class="btn" type="submit">予約</button>
             </div>
         </form>
     </div>
-
-    
 </main>
 
 <script>
