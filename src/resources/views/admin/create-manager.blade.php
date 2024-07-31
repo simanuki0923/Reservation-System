@@ -32,7 +32,7 @@
             <div class="form-group">
                 <label for="role">権限</label>
                 <select class="form-control" id="role" name="role" required>
-                    <option value="store_manager" {{ old('role') == 'store_manager' ? 'selected' : '' }}>ストアマネージャー</option>
+                    <option value="store_manager" {{ old('role') == 'store_manager' ? 'selected' : '' }}>店舗代表者</option>
                     <option value="administrator" {{ old('role') == 'administrator' ? 'selected' : '' }}>管理者</option>
                 </select>
                 @error('role')

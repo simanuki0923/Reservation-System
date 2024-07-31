@@ -15,12 +15,24 @@
                 <input type="text" name="name" id="name" class="form-control" required>
             </div>
             <div class="form-group">
-                <label for="address">住所</label>
-                <input type="text" name="address" id="address" class="form-control" required>
+                <label for="area">エリア</label>
+                <input type="text" name="area" id="area" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="genre">ジャンル</label>
+                <input type="text" name="genre" id="genre" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="description">詳細</label>
+                <textarea name="description" id="description" class="form-control" required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="image_url">画像URL</label>
+                <input type="url" name="image_url" id="image_url" class="form-control">
             </div>
             <div class="form-submit">
-                <button type="submit" class="btn btn-primary">作成</button>
                 <a href="{{ route('store.dashboard') }}" class="btn btn-secondary">戻る</a>
+                <button type="submit" class="btn btn-primary">作成</button>
             </div>
         </form>
     </div>

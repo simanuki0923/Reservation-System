@@ -30,19 +30,25 @@ class StoreRepresentativeController extends Controller
     }
 
     public function store(Request $request)
-    {
-        $request->validate([
-            'name' => 'required|string|max:255',
-            'address' => 'required|string|max:255',
-        ]);
+   {
+    $request->validate([
+        'name' => 'required|string|max:255',
+        'area' => 'required|string|max:255',
+        'genre' => 'required|string|max:255',
+        'description' => 'required|string',
+        'image_url' => 'nullable|url',
+    ]);
 
-        $store = new Store();
-        $store->name = $request->input('name');
-        $store->address = $request->input('address');
-        $store->save();
+    $store = new Store();
+    $store->name = $request->input('name');
+    $store->area = $request->input('area');
+    $store->genre = $request->input('genre');
+    $store->description = $request->input('description');
+    $store->image_url = $request->input('image_url');
+    $store->save();
 
-        return redirect()->route('store.dashboard')->with('success', '店舗情報が作成されました。');
-    }
+    return redirect()->route('store.dashboard')->with('success', '店舗情報が作成されました。');
+   }
 
     public function reservations()
     {
@@ -58,17 +64,37 @@ class StoreRepresentativeController extends Controller
     }
 
     public function update(Request $request, $id)
-    {
-        $request->validate([
-            'name' => 'required|string|max:255',
-            'address' => 'required|string|max:255',
-        ]);
+   {
+    $request->validate([
+        'name' => 'required|string|max:255',
+        'area' => 'required|string|max:255',
+        'genre' => 'required|string|max:255',
+        'description' => 'required|string',
+        'image_url' => 'nullable|url',
+    ]);
 
-        $store = Store::findOrFail($id);
-        $store->name = $request->input('name');
-        $store->address = $request->input('address');
-        $store->save();
+    $store = Store::findOrFail($id);
+    $store->name = $request->input('name');
+    $store->area = $request->input('area');
+    $store->genre = $request->input('genre');
+    $store->description = $request->input('description');
+    $store->image_url = $request->input('image_url');
+    $store->save();
 
-        return redirect()->route('store.dashboard')->with('success', '店舗情報が更新されました。');
+    return redirect()->route('store.dashboard')->with('success', '店舗情報が更新されました。');
+   }
+
+   public function destroy($id)
+{
+    // ストアの取得
+    $store = Store::find($id);
+
+    // ストアが存在する場合のみ削除
+    if ($store) {
+        $store->delete();
+        return redirect()->route('store.dashboard')->with('success', 'ストアが削除されました。');
     }
+
+    return redirect()->route('store.dashboard')->with('error', 'ストアが見つかりませんでした。');
+}
 }

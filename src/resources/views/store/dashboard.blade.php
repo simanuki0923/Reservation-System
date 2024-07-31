@@ -7,7 +7,7 @@
 @section('content')
 <main>
     <div class="container">
-        <h1>ダッシュボード</h1>
+        <h1>管理者画面</h1>
         <a href="{{ route('store.create') }}" class="btn btn-primary">店舗情報の作成</a>
         <a href="{{ route('store.reservations') }}" class="btn btn-primary">予約情報の確認</a>
         <a href="{{ route('admin.login') }}" class="btn btn-secondary">ログアウト</a>

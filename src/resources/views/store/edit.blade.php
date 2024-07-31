@@ -16,11 +16,28 @@
                 <input type="text" name="name" id="name" class="form-control" value="{{ $store->name }}" required>
             </div>
             <div class="form-group">
-                <label for="address">住所</label>
-                <input type="text" name="address" id="address" class="form-control" value="{{ $store->address }}" required>
+                <label for="area">エリア</label>
+                <input type="text" name="area" id="area" class="form-control" value="{{ $store->area }}" required>
             </div>
-            <div class="form-group-submit">
+            <div class="form-group">
+                <label for="genre">ジャンル</label>
+                <input type="text" name="genre" id="genre" class="form-control" value="{{ $store->genre }}" required>
+            </div>
+            <div class="form-group">
+                <label for="description">詳細</label>
+                <textarea name="description" id="description" class="form-control" required>{{ $store->description }}</textarea>
+            </div>
+            <div class="form-group">
+                <label for="image_url">画像URL</label>
+                <input type="url" name="image_url" id="image_url" class="form-control" value="{{ $store->image_url }}">
+            </div>
+            <div class="form-actions">
                 <button type="submit" class="btn btn-primary">更新</button>
+                <form action="{{ route('store.destroy', $store->id) }}" method="POST" style="display: inline;">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit" class="btn btn-danger">削除</button>
+                </form>
                 <a href="{{ route('store.dashboard') }}" class="btn btn-secondary">戻る</a>
             </div>
         </form>

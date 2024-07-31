@@ -1,113 +1,87 @@
 .container {
+    max-width: 800px;
     margin: 0 auto;
     padding: 20px;
-    max-width: 800px;
 }
 
+/* 見出しのスタイル */
 h2 {
-    font-size: 1.5em;
     margin-bottom: 20px;
-    text-align: center;
+    font-size: 1.5rem;
+    color: #333;
 }
 
-.alert {
-    padding: 15px;
-    margin-bottom: 20px;
-    border-radius: 5px;
-}
-
+/* 成功メッセージのスタイル */
 .alert-success {
+    margin-bottom: 20px;
+    padding: 15px;
     background-color: #d4edda;
     color: #155724;
     border: 1px solid #c3e6cb;
+    border-radius: 5px;
 }
 
-.alert-danger {
-    background-color: #f8d7da;
-    color: #721c24;
-    border: 1px solid #f5c6cb;
-}
-
+/* フォームグループのスタイル */
 .form-group {
     margin-bottom: 15px;
 }
 
+/* ラベルのスタイル */
 .form-group label {
     display: block;
-    margin-bottom: 5px;
     font-weight: bold;
+    margin-bottom: 5px;
+    color: #333;
 }
 
+/* テキスト入力、パスワード入力、セレクトボックスのスタイル */
 .form-control {
     width: 100%;
     padding: 10px;
     border: 1px solid #ced4da;
     border-radius: 5px;
+    box-sizing: border-box;
 }
 
-.form-control:focus {
-    border-color: #007bff;
-    box-shadow: 0 0 0 0.2rem rgba(38, 143, 255, 0.25);
+/* フォームアクションボタンのスタイル */
+.form-actions {
+    margin-top: 20px;
+    text-align: right;
+    /* ボタンを右揃えにする */
 }
 
-.btn-primary {
+/* 更新ボタン、削除ボタン、戻るボタンの共通スタイル */
+.btn {
     padding: 10px 20px;
-    font-size: 1em;
-    border: none;
+    font-size: 1rem;
+    font-weight: bold;
+    text-align: center;
     border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    margin-left: 10px;
+    /* ボタン間にスペースを追加 */
+}
+
+/* 更新ボタンのスタイル */
+.btn-primary {
     background-color: #007bff;
     color: #fff;
-    cursor: pointer;
-    transition: background-color 0.3s;
-    text-align: center;
 }
 
-.btn-primary:hover {
-    background-color: #0056b3;
-}
-
+/* 削除ボタンのスタイル */
 .btn-danger {
-    padding: 10px 20px;
-    font-size: 1em;
-    border: none;
-    border-radius: 5px;
     background-color: #dc3545;
     color: #fff;
-    cursor: pointer;
-    transition: background-color 0.3s;
-    text-align: center;
 }
 
-.btn-danger:hover {
-    background-color: #c82333;
-}
-
+/* 戻るボタンのスタイル */
 .btn-secondary {
-    padding: 10px 20px;
-    font-size: 1em;
-    border: none;
-    border-radius: 5px;
     background-color: #6c757d;
     color: #fff;
-    cursor: pointer;
-    transition: background-color 0.3s;
-    text-align: center;
 }
 
-.btn-secondary:hover {
-    background-color: #5a6268;
-}
-
-.actions-container {
-    display: flex;
-    justify-content: flex-end;
-    margin-top: 20px;
-}
-
-.actions-container .btn {
-    margin-left: 10px;
-}
-
-.actions-container .btn:first-child {
-    margin-left: 0;
+/* 削除ボタンと戻るボタンを同じ行に表示 */
+.form-actions form {
+    display: inline;
 }

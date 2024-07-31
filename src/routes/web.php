@@ -70,4 +70,5 @@ Route::middleware(['auth:admin', 'role:store_representative'])->group(function (
     Route::get('/store/reservations', [StoreRepresentativeController::class, 'reservations'])->name('store.reservations');
     Route::get('/store/{id}/edit', [StoreRepresentativeController::class, 'edit'])->name('store.edit');
     Route::put('/store/{id}', [StoreRepresentativeController::class, 'update'])->name('store.update');
+    Route::delete('/store/{id}', [StoreRepresentativeController::class, 'destroy'])->name('store.destroy');
 });

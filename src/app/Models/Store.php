@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Store extends Model
 {
 
-    protected $fillable = ['name', 'address'];
+    protected $fillable = ['name', 'area', 'genre', 'description', 'image_url',];
 
     public function reservations()
     {
