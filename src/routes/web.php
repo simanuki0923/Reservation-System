@@ -11,6 +11,7 @@ use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\AdminLoginController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\StoreRepresentativeController;
+use App\Http\Controllers\ImageUploadController;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,11 +32,8 @@ Route::get('/shop_all', [RestaurantController::class, 'index'])->name('shop_all'
 Route::get('/detail/{id}', [ReservationController::class, 'show'])->name('restaurant.show');
 Route::post('/reservation', [ReservationController::class, 'store'])->name('reservation.store');
 Route::get('/done', [ReservationController::class, 'done'])->name('done');
-
-
 Route::get('/favorite', [FavoriteController::class, 'index'])->name('favorite.index');
 Route::post('/favorites/toggle/{id}', [FavoriteController::class, 'toggle'])->name('favorites.toggle');
-
 
 Route::middleware('auth')->group(function () {
     Route::get('/', [LoginController::class, 'shop_all'])->name('home');
@@ -71,4 +69,8 @@ Route::middleware(['auth:admin', 'role:store_representative'])->group(function (
     Route::get('/store/{id}/edit', [StoreRepresentativeController::class, 'edit'])->name('store.edit');
     Route::put('/store/{id}', [StoreRepresentativeController::class, 'update'])->name('store.update');
     Route::delete('/store/{id}', [StoreRepresentativeController::class, 'destroy'])->name('store.destroy');
+
+    Route::get('/store/upload', [StoreRepresentativeController::class, 'uploadForm'])->name('store.upload');
+    Route::post('/store/upload', [StoreRepresentativeController::class, 'upload'])->name('store.upload.post');
+    
 });
