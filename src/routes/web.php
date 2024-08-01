@@ -1,5 +1,7 @@
 <?php
 
+use Illuminate\Foundation\Auth\EmailVerificationRequest;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RestaurantController;
 use App\Http\Controllers\FavoriteController;
@@ -44,6 +46,28 @@ Route::middleware('auth')->group(function () {
     Route::post('/reviews', [ReviewController::class, 'store'])->name('review.store');
 });
 
+//メール認証
+//メール認証
+Route::get('/email/verify', function () {
+    return view('auth.verify-email');
+})->middleware('auth')->name('verification.notice');
+
+Route::get('/email/verify/{id}/{hash}', function (EmailVerificationRequest $request) {
+    $request->fulfill();
+    return redirect()->route('thanks'); // または他の適切なURL
+})->middleware(['auth', 'signed'])->name('verification.verify');
+
+Route::post('/email/verification-notification', function (Request $request) {
+    $request->user()->sendEmailVerificationNotification();
+    return back()->with('message', 'Verification link sent!');
+})->middleware(['auth', 'throttle:6,1'])->name('verification.send');
+
+Route::get('/profile', function () {
+    return view('profile'); // プロフィールページを表示
+})->middleware(['auth', 'verified'])->name('profile');
+
+
+
 
 Route::get('/admin-login', [AdminLoginController::class, 'create'])->name('admin.login');
 Route::post('/admin-login', [AdminLoginController::class, 'store'])->name('admin.login.store');
@@ -72,5 +96,4 @@ Route::middleware(['auth:admin', 'role:store_representative'])->group(function (
 
     Route::get('/store/upload', [StoreRepresentativeController::class, 'uploadForm'])->name('store.upload');
     Route::post('/store/upload', [StoreRepresentativeController::class, 'upload'])->name('store.upload.post');
-    
 });
