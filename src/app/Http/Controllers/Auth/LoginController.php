@@ -10,12 +10,22 @@ use App\Models\Restaurant;
 
 class LoginController extends Controller
 {
-  public function login(LoginRequest $request)
+     public function login(LoginRequest $request)
     {
         $credentials = $request->validated();
 
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
+
+            // ユーザーがメール認証済みであるか確認
+            $user = Auth::user();
+            if (!$user->hasVerifiedEmail()) {
+                Auth::logout();
+                $request->session()->invalidate();
+                $request->session()->regenerateToken();
+                return redirect()->route('verification.notice')->with('error', 'Please verify your email address.');
+            }
+
             return redirect()->intended('dashboard');
         }
 
