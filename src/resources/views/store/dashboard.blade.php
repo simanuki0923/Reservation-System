@@ -25,13 +25,13 @@
         <a href="{{ route('emails.sent') }}" class="btn btn-primary">送信済みメールの確認</a>
 
         <!-- ログアウトリンク -->
-        <a href="{{ route('logout') }}" class="btn btn-secondary"
+        <a href="{{ route('store.logout') }}" class="btn btn-secondary"
            onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
            ログアウト
         </a>
         
         <!-- ログアウトフォーム -->
-        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+        <form id="logout-form" action="{{ route('store.logout') }}" method="POST" style="display: none;">
             @csrf
         </form>
 
