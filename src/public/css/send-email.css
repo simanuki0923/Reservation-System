@@ -3,18 +3,14 @@
     margin: 0 auto;
     padding: 20px;
     background-color: #f9f9f9;
-    /* 背景色 */
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-/* ヘッダーの設定 */
 h1 {
     color: #333;
-    /* テキストの色 */
 }
 
-/* 成功メッセージのスタイル */
 .success-message {
     background-color: #dff0d8;
     color: #3c763d;
@@ -24,12 +20,10 @@ h1 {
     margin-bottom: 20px;
 }
 
-/* フォームグループの設定 */
 .form-group {
     margin-bottom: 15px;
 }
 
-/* ラベルのスタイル */
 .form-label {
     display: block;
     font-weight: bold;
@@ -37,7 +31,6 @@ h1 {
     color: #333;
 }
 
-/* 入力フィールドのスタイル */
 .form-input,
 .form-textarea {
     width: 100%;
@@ -47,25 +40,19 @@ h1 {
     box-sizing: border-box;
 }
 
-/* テキストエリアの設定 */
 .form-textarea {
     resize: vertical;
-    /* 縦方向のリサイズのみ許可 */
 }
 
-/* エラーメッセージのスタイル */
 .error-message {
     color: #a94442;
     font-size: 14px;
     margin-top: 5px;
 }
 
-/* 送信ボタンのスタイル */
 .submit-button {
     background-color: #4CAF50;
-    /* 緑色の背景 */
     color: white;
-    /* テキストは白色 */
     border: none;
     padding: 10px 20px;
     text-align: center;
@@ -77,12 +64,9 @@ h1 {
     border-radius: 4px;
 }
 
-/* 戻るボタンのスタイル */
 .back-button {
     background-color: #f44336;
-    /* 赤色の背景 */
     color: white;
-    /* テキストは白色 */
     border: none;
     padding: 10px 20px;
     text-align: center;
@@ -94,19 +78,16 @@ h1 {
     border-radius: 4px;
 }
 
-/* フォームのアクション部分を右寄せ */
 .form-actions {
     display: flex;
     justify-content: flex-end;
     align-items: center;
 }
 
-/* マージン調整 */
 .mt-4 {
     margin-top: 1rem;
 }
 
-/* テキストの色とサイズ調整 */
 .text-2xl {
     font-size: 1.5rem;
 }
@@ -117,4 +98,57 @@ h1 {
 
 .mb-4 {
     margin-bottom: 1rem;
+}
+
+/* 768px以下のスクリーンサイズ用のレスポンシブデザイン */
+@media (max-width: 768px) {
+    .container {
+        max-width: 100%;
+        padding: 15px;
+        margin: 10px;
+    }
+
+    h1 {
+        font-size: 20px;
+        text-align: center;
+        margin-bottom: 15px;
+    }
+
+    .form-group {
+        margin-bottom: 10px;
+    }
+
+    .form-label {
+        font-size: 14px;
+    }
+
+    .form-input,
+    .form-textarea {
+        padding: 8px;
+    }
+
+    .submit-button,
+    .back-button {
+        width: 100%;
+        font-size: 14px;
+        padding: 10px;
+        margin: 5px 0;
+    }
+
+    .form-actions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .mt-4 {
+        margin-top: 0.5rem;
+    }
+
+    .text-2xl {
+        font-size: 1.25rem;
+    }
+
+    .mb-4 {
+        margin-bottom: 0.5rem;
+    }
 }
