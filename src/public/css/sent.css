@@ -21,6 +21,26 @@ h1 {
     color: #333333;
 }
 
+.btn-container {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 20px;
+}
+
+.btn-back {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.btn-back:hover {
+    background-color: #0056b3;
+}
+
 .table {
     width: 100%;
     border-collapse: collapse;
@@ -63,4 +83,34 @@ h1 {
 p {
     text-align: center;
     color: #888888;
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 10px;
+        margin: 10px;
+    }
+
+    h1 {
+        font-size: 20px;
+        margin-bottom: 15px;
+    }
+
+    .btn-container {
+        justify-content: center;
+        margin-bottom: 15px;
+    }
+
+    .btn-back {
+        padding: 8px 16px;
+    }
+
+    .table thead th,
+    .table tbody td {
+        padding: 8px;
+    }
+
+    .table tbody td:nth-child(3) {
+        max-width: 150px;
+    }
 }

@@ -9,6 +9,10 @@
     <div class="container">
         <h1>送信済みメール</h1>
 
+        <div class="btn-container">
+            <a href="{{ route('store.dashboard') }}" class="btn-back">戻る</a>
+        </div>
+
         @if($mails->isEmpty())
             <p>送信済みのメールはありません。</p>
         @else
