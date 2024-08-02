@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
@@ -25,6 +26,13 @@ class StoreRepresentativeController extends Controller
         $managers = Admin::where('role', 'store_manager')->get();
 
         return view('store.dashboard', compact('stores', 'managers'));
+    }
+
+    public function logout(Request $request)
+    {
+        Auth::guard('admin')->logout();
+
+        return redirect()->route('admin.login');
     }
 
     public function create()

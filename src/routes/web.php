@@ -82,6 +82,8 @@ Route::middleware(['auth:admin', 'role:administrator'])->group(function () {
     Route::get('/admin/managers/{id}/edit', [AdminController::class, 'editManager'])->name('admin.editManager');
     Route::put('/admin/managers/{id}', [AdminController::class, 'updateManager'])->name('admin.updateManager');
     Route::delete('/admin/managers/{id}', [AdminController::class, 'deleteManager'])->name('admin.deleteManager');
+    
+    Route::post('/admin-logout', [AdminController::class, 'logout'])->name('admin.logout');
 });
 
 // 店舗代表者用ルート
@@ -103,5 +105,6 @@ Route::middleware(['auth:admin', 'role:store_representative'])->group(function (
 
     //メール保存
     Route::get('/emails/sent', [StoreRepresentativeController::class, 'sentEmails'])->name('emails.sent');
+    Route::post('/store-logout', [StoreRepresentativeController::class, 'logout'])->name('store.logout');
 
 });

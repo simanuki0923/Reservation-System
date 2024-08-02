@@ -20,6 +20,13 @@ class AdminController extends Controller
         return view('admin.index', compact('managers'));
     }
 
+    public function logout(Request $request)
+    {
+        Auth::guard('admin')->logout();
+
+        return redirect()->route('admin.login');
+    }
+
     public function createManager()
     {
         return view('admin.create-manager');
