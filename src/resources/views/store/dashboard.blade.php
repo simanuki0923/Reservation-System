@@ -18,6 +18,12 @@
         <!-- 画像アップロードリンク -->
         <a href="{{ route('store.upload') }}" class="btn btn-primary">画像アップロード</a>
 
+        <!-- メール送信リンク -->
+        <a href="{{ route('emails.send.email.form') }}" class="btn btn-primary">メール送信</a>
+
+        <!-- 送信済みメールリンク -->
+        <a href="{{ route('emails.sent') }}" class="btn btn-primary">送信済みメールの確認</a>
+
         <!-- ログアウトリンク -->
         <a href="{{ route('logout') }}" class="btn btn-secondary"
            onclick="event.preventDefault(); document.getElementById('logout-form').submit();">

@@ -96,4 +96,12 @@ Route::middleware(['auth:admin', 'role:store_representative'])->group(function (
 
     Route::get('/store/upload', [StoreRepresentativeController::class, 'uploadForm'])->name('store.upload');
     Route::post('/store/upload', [StoreRepresentativeController::class, 'upload'])->name('store.upload.post');
+
+    //メール送信
+    Route::get('/emails/send-email', [StoreRepresentativeController::class, 'showEmailForm'])->name('emails.send.email.form');
+    Route::post('/emails/send-email', [StoreRepresentativeController::class, 'sendEmail'])->name('emails.send.email');
+
+    //メール保存
+    Route::get('/emails/sent', [StoreRepresentativeController::class, 'sentEmails'])->name('emails.sent');
+
 });

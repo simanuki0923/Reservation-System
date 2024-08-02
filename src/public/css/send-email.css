@@ -1,0 +1,120 @@
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    /* 背景色 */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* ヘッダーの設定 */
+h1 {
+    color: #333;
+    /* テキストの色 */
+}
+
+/* 成功メッセージのスタイル */
+.success-message {
+    background-color: #dff0d8;
+    color: #3c763d;
+    border: 1px solid #d6e9c6;
+    padding: 10px;
+    border-radius: 4px;
+    margin-bottom: 20px;
+}
+
+/* フォームグループの設定 */
+.form-group {
+    margin-bottom: 15px;
+}
+
+/* ラベルのスタイル */
+.form-label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+/* 入力フィールドのスタイル */
+.form-input,
+.form-textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+/* テキストエリアの設定 */
+.form-textarea {
+    resize: vertical;
+    /* 縦方向のリサイズのみ許可 */
+}
+
+/* エラーメッセージのスタイル */
+.error-message {
+    color: #a94442;
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+/* 送信ボタンのスタイル */
+.submit-button {
+    background-color: #4CAF50;
+    /* 緑色の背景 */
+    color: white;
+    /* テキストは白色 */
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+/* 戻るボタンのスタイル */
+.back-button {
+    background-color: #f44336;
+    /* 赤色の背景 */
+    color: white;
+    /* テキストは白色 */
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+/* フォームのアクション部分を右寄せ */
+.form-actions {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+/* マージン調整 */
+.mt-4 {
+    margin-top: 1rem;
+}
+
+/* テキストの色とサイズ調整 */
+.text-2xl {
+    font-size: 1.5rem;
+}
+
+.font-bold {
+    font-weight: 700;
+}
+
+.mb-4 {
+    margin-bottom: 1rem;
+}
