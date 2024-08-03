@@ -85,3 +85,40 @@ h2 {
 .form-actions form {
     display: inline;
 }
+
+/* タブレット・スマートフォン用のレスポンシブデザイン */
+@media (max-width: 768px) {
+    .container {
+        padding: 10px;
+        max-width: 100%;
+    }
+
+    h2 {
+        font-size: 1.25rem;
+    }
+
+    .btn {
+        padding: 8px 15px;
+        font-size: 0.875rem;
+        margin-left: 5px;
+    }
+
+    .form-actions {
+        text-align: center;
+    }
+
+    .form-actions .btn {
+        display: block;
+        margin: 10px auto;
+    }
+
+    .alert-success {
+        font-size: 0.875rem;
+        padding: 10px;
+    }
+
+    .form-control {
+        padding: 8px;
+        font-size: 0.875rem;
+    }
+}

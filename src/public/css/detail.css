@@ -1,5 +1,3 @@
-
-
 main {
     display: flex;
     justify-content: center;
@@ -84,7 +82,6 @@ main {
     width: 450px;
     box-sizing: border-box;
     text-align: left;
-
 }
 
 #reservation-details p {
@@ -92,7 +89,6 @@ main {
     font-size: 16px;
     color: white;
 }
-
 
 .reservation-details {
     margin-top: 20px;
@@ -135,138 +131,55 @@ main {
     padding: 5px 0;
 }
 
-@media screen and (max-width: 768px){
-    main {
-         display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
-        background-color: #f8f9fa;
-        padding: 0 20px;
-    }
-    
+/* タブレット・スマートフォン用のレスポンシブデザイン */
+@media (max-width: 768px) {
     .reservation-container {
-        background-color: #007bff;
-        color: white;
-        padding: 10px;
-        border-radius: 10px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        width: 100%;
-        max-width: 600px;
-        min-width: 600px;
-        display: flex;
-        flex-direction: column;
-        box-sizing: border-box;
-        height: 630px;
+        min-width: auto;
+        /* 最小幅の設定を解除 */
+        height: auto;
+        /* 高さを自動調整 */
+        padding: 15px;
     }
-    
+
     .reservation-container h3 {
-        margin-bottom: 20px;
-        font-size: 24px;
+        font-size: 20px;
     }
-    
-    .reservation-container .form-label {
-        color: white;
-    }
-    
-    .reservation-container input[type="date"] {
-        margin-bottom: 15px;
-        width: 150px;
-        padding: 10px;
-        border-radius: 5px;
-        border: none;
-        box-sizing: border-box;
-    }
-    
+
+    .reservation-container input[type="date"],
     .reservation-container input:not([type="date"]),
     .reservation-container select {
-        margin-bottom: 15px;
-        width: 200px;
-        padding: 10px;
-        border-radius: 5px;
-        border: none;
-        box-sizing: border-box;
-    }
-    
-    .btn-container {
-        margin-top: auto;
-        text-align: center;
-    }
-    
-    .reservation-container .btn {
-        background-color: hsl(231, 100%, 49%);
-        border: none;
-        padding: 15px;
-        border-radius: 5px;
-        cursor: pointer;
         width: 100%;
-        color: white;
-        font-size: 15px;
-        margin-top: 150px;
-    }
-    
-    .reservation-container .btn:hover {
-        background-color: #0131f3;
-    }
-    
-    #reservation-details {
-        margin-top: 1px;
-        background-color: #00bfff;
-        color: white;
-        padding: 1px;
-        border-radius: 10px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        width: 450px;
-        box-sizing: border-box;
-        text-align: left;
-    
-    }
-    
-    #reservation-details p {
         margin-bottom: 10px;
-        font-size: 16px;
-        color: white;
+        padding: 8px;
     }
-    
-    
-    .reservation-details {
+
+    .reservation-container .btn {
+        font-size: 14px;
         margin-top: 20px;
-        background-color: white;
-        color: black;
-        padding: 15px;
-        border-radius: 10px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     }
-    
-    .restaurant-details {
-        flex: 1;
-        max-width: 600px;
-        margin-right: 20px;
-    }
-    
-    .restaurant-details .card {
-        background-color: #fff;
-        border-radius: 10px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        overflow: hidden;
-    }
-    
-    .card__imgframe {
+
+    #reservation-details {
         width: 100%;
-        height: auto;
     }
-    
-    .card__textbox {
-        padding: 15px;
+
+    .restaurant-details {
+        max-width: 100%;
+        margin-right: 0;
     }
-    
+
+    .restaurant-details .card {
+        margin-bottom: 20px;
+    }
+
     .card__titletext {
-        font-size: 1.5rem;
-        font-weight: bold;
+        font-size: 1.2rem;
     }
-    
+
+    .card__textbox {
+        padding: 10px;
+    }
+
     .card__overviewtext p {
-        margin: 0;
-        padding: 5px 0;
+        font-size: 14px;
     }
 }

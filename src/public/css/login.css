@@ -57,7 +57,7 @@ main {
     display: inline-block;
     width: 25px;
     height: 25px;
-    background: url(../img/user_icon.png)no-repeat;
+    background: url(../img/user_icon.png) no-repeat;
     background-size: contain;
     margin-right: 8px;
     vertical-align: bottom;
@@ -68,7 +68,7 @@ main {
     display: inline-block;
     width: 25px;
     height: 25px;
-    background: url(../img/mail_icon.png)no-repeat;
+    background: url(../img/mail_icon.png) no-repeat;
     background-size: contain;
     margin-right: 8px;
     vertical-align: bottom;
@@ -96,99 +96,43 @@ main {
     cursor: pointer;
 }
 
-.form__item-button:hover {
-    opacity: 0.8;
-}
-
-@media screen and (max-width: 768px) {
-    body {
-        background-color: #fff;
-    }
-
-    main {
-        margin-top: 100px;
-    }
-
+/* タブレット・スマートフォン用のレスポンシブデザイン */
+@media (max-width: 768px) {
     .auth__wrap {
-        margin: auto;
-        max-width: 350px;
-        width: 95%;
-        border: none;
-        border-radius: 10px;
-        box-shadow: 2px 2px 5px gray;
-        background-color: #fff;
+        max-width: 90%;
+        /* 最大幅を調整 */
+        padding: 15px;
+        /* 内側の余白を調整 */
     }
 
     .auth__header {
-        background-color: rgb(63, 90, 242);
-        color: #fff;
-        border-top-left-radius: 8px;
-        border-top-right-radius: 8px;
-        font-size: 1.6rem;
-        padding: 15px;
+        font-size: 1.4rem;
+        /* フォントサイズを調整 */
+        padding: 10px;
+        /* 内側の余白を調整 */
     }
 
     .form__item {
-        padding: 30px 30px 20px 30px;
+        padding: 20px;
+        /* 内側の余白を調整 */
     }
 
     .form__input-item {
-        display: inline-block;
-        width: 85%;
-        font-size: 1.25rem;
-        border: none;
-        outline: none;
-        border-bottom: 1px solid black;
-    }
-
-    .form__item-user,
-    .form__item-mail,
-    .form__item-key {
-        width: 100%;
-        margin-bottom: 5px;
+        font-size: 1.1rem;
+        /* フォントサイズを調整 */
     }
 
     .error__item {
-        margin-bottom: 15px;
-        color: red;
-        font-size: 1.4rem;
-        margin-left: 38px;
-    }
-
-    .iconEmail::before {
-        content: "";
-        display: inline-block;
-        width: 25px;
-        height: 25px;
-        background: url(../img/mail_icon.png)no-repeat;
-        background-size: contain;
-        margin-right: 8px;
-        vertical-align: bottom;
-    }
-
-    .iconPassword::before {
-        content: "";
-        display: inline-block;
-        width: 25px;
-        height: 25px;
-        background: url(../img/カギアイコン.png) no-repeat;
-        background-size: contain;
-        margin-right: 8px;
-        vertical-align: bottom;
+        font-size: 1.2rem;
+        /* フォントサイズを調整 */
+        margin-left: 20px;
+        /* マージンを調整 */
     }
 
     .form__item-button {
-        margin-left: auto;
-        display: block;
-        background-color: rgb(63, 90, 242);
-        border: 1px solid rgb(63, 90, 242);
-        border-radius: 5px;
-        color: #fff;
-        padding: 3px 10px;
-        cursor: pointer;
-    }
-
-    .form__item-button:hover {
-        opacity: 0.8;
+        padding: 5px 15px;
+        /* パディングを調整 */
+        font-size: 1rem;
+        /* フォントサイズを調整 */
     }
 }

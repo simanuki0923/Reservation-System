@@ -77,3 +77,31 @@ h1 {
 .btn-container .btn {
     margin-right: 0;
 }
+
+/* タブレット・スマートフォン用のレスポンシブデザイン */
+@media (max-width: 768px) {
+    .container {
+        padding: 10px;
+        max-width: 100%;
+    }
+
+    h1 {
+        font-size: 2em;
+    }
+
+    .btn {
+        padding: 8px 15px;
+        font-size: 0.9em;
+    }
+
+    .table th,
+    .table td {
+        padding: 8px;
+        font-size: 0.9em;
+    }
+
+    .btn-container {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
