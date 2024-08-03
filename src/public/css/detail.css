@@ -1,25 +1,55 @@
 main {
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: space-between;
+    align-items: flex-start;
     height: 100vh;
     background-color: #f8f9fa;
-    padding: 0 20px;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.restaurant-details,
+.reservation-container {
+    flex: 1;
+    margin: 10px;
+}
+
+.restaurant-details .card {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.card__imgframe {
+    width: 100%;
+    height: auto;
+}
+
+.card__textbox {
+    padding: 15px;
+}
+
+.card__titletext {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.card__overviewtext p {
+    margin: 0;
+    padding: 5px 0;
 }
 
 .reservation-container {
     background-color: #007bff;
     color: white;
-    padding: 10px;
+    padding: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    width: 100%;
-    max-width: 600px;
-    min-width: 600px;
     display: flex;
     flex-direction: column;
     box-sizing: border-box;
-    height: 630px;
+    height: 100%;
 }
 
 .reservation-container h3 {
@@ -29,30 +59,38 @@ main {
 
 .reservation-container .form-label {
     color: white;
+    display: block;
+    margin-bottom: 5px;
 }
 
-.reservation-container input[type="date"] {
-    margin-bottom: 15px;
-    width: 150px;
-    padding: 10px;
-    border-radius: 5px;
-    border: none;
-    box-sizing: border-box;
-}
-
-.reservation-container input:not([type="date"]),
+.reservation-container input[type="date"],
 .reservation-container select {
     margin-bottom: 15px;
-    width: 200px;
+    width: 100%;
     padding: 10px;
     border-radius: 5px;
     border: none;
     box-sizing: border-box;
+}
+
+#reservation-details {
+    margin-top: 20px;
+    background-color: #00bfff;
+    color: white;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+    text-align: left;
+}
+
+#reservation-details p {
+    margin: 0 0 10px;
+    font-size: 16px;
 }
 
 .btn-container {
     margin-top: auto;
-    /* ボタンを下に移動 */
     text-align: center;
 }
 
@@ -65,13 +103,13 @@ main {
     width: 100%;
     color: white;
     font-size: 15px;
-    margin-top: 150px;
 }
 
 .reservation-container .btn:hover {
     background-color: #0131f3;
 }
 
+feature/email-sending
 #reservation-details {
     margin-top: 1px;
     background-color: #00bfff;
@@ -182,4 +220,24 @@ main {
     .card__overviewtext p {
         font-size: 14px;
     }
+  
+/* 768px以下のスクリーンサイズ用のレスポンシブデザイン */
+@media (max-width: 768px) {
+    main {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .restaurant-details,
+    .reservation-container {
+        width: 100%;
+        margin: 0;
+        margin-bottom: 20px;
+    }
+
+    .reservation-container {
+        padding: 20px;
+        height: auto;
+    }
+ main
 }
