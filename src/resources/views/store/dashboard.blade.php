@@ -19,19 +19,18 @@
         <a href="{{ route('store.upload') }}" class="btn btn-primary">画像アップロード</a>
 
         <!-- メール送信リンク -->
-        <a href="{{ route('emails.send.email.form') }}" class="btn btn-primary">メール送信</a>
+        <a href="{{ route('mail.index') }}" class="btn btn-primary">メール送信</a>
 
-        <!-- 送信済みメールリンク -->
-        <a href="{{ route('emails.sent') }}" class="btn btn-primary">送信済みメールの確認</a>
+        
 
         <!-- ログアウトリンク -->
-        <a href="{{ route('store.logout') }}" class="btn btn-secondary"
+        <a href="{{ route('admin.logout') }}" class="btn btn-secondary"
            onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
            ログアウト
         </a>
         
         <!-- ログアウトフォーム -->
-        <form id="logout-form" action="{{ route('store.logout') }}" method="POST" style="display: none;">
+        <form id="logout-form" action="{{ route('admin.logout') }}" method="POST" style="display: none;">
             @csrf
         </form>
 

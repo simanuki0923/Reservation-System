@@ -7,6 +7,7 @@ use App\Http\Requests\LoginRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Restaurant;
+use Illuminate\Support\Facades\Redirect;
 
 class LoginController extends Controller
 {
@@ -48,5 +49,14 @@ class LoginController extends Controller
         $request->session()->regenerateToken();
 
        return redirect()->route('login');
+    }
+
+    protected function authenticated(Request $request, $user)
+    {
+        if ($user->hasVerifiedEmail()) {
+            return Redirect::intended('shop_all');
+        } else {
+            return Redirect::route('verification.notice');
+        }
     }
 }
