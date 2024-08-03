@@ -4,13 +4,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Mail;
 use App\Models\Store;
 use App\Models\Admin;
 use App\Models\Reservation;
-use App\Models\Image; 
-use App\Mail\SendEmail;
+use App\Models\Image;
+
 
 class StoreRepresentativeController extends Controller
 {
@@ -131,41 +129,4 @@ class StoreRepresentativeController extends Controller
 
         return redirect()->route('store.upload')->with('success', '画像がアップロードされました。');
     }
-
-    public function showEmailForm()
-   {
-    return view('emails.send-email');
-   }
-
-    public function sendEmail(Request $request)
-   {
-    $request->validate([
-        'to' => 'required|email',
-        'subject' => 'required|string|max:255',
-        'message' => 'required|string',
-    ]);
-
-    $emailData = [
-        'to' => $request->input('to'),
-        'subject' => $request->input('subject'),
-        'message' => $request->input('message'),
-    ];
-
-    // Store email data in the database
-    \App\Models\Mail::create($emailData);
-
-    Mail::to($request->input('to'))->send(new SendEmail(
-        $request->input('subject'),
-        $request->input('message')
-    ));
-
-    return redirect()->route('emails.send.email.form')->with('success', 'メールが送信されました。');
-   }
-
-   public function sentEmails()
-   {
-    $mails = \App\Models\Mail::all();
-    
-    return view('emails.sent', compact('mails'));
-   }
 }

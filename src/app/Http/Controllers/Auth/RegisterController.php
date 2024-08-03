@@ -25,7 +25,7 @@ class RegisterController extends Controller
         $user->sendEmailVerificationNotification();
 
         // メール認証後にログインするため、ユーザーにはメール認証後にログインするように促す
-        return redirect()->route('verification.notice')->with('status', 'A verification link has been sent to your email address.');
+        return redirect()->route('thanks');
     }
 
     protected function validator(array $data)
