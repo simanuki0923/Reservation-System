@@ -109,6 +109,118 @@ main {
     background-color: #0131f3;
 }
 
+feature/email-sending
+#reservation-details {
+    margin-top: 1px;
+    background-color: #00bfff;
+    color: white;
+    padding: 1px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 450px;
+    box-sizing: border-box;
+    text-align: left;
+}
+
+#reservation-details p {
+    margin-bottom: 10px;
+    font-size: 16px;
+    color: white;
+}
+
+.reservation-details {
+    margin-top: 20px;
+    background-color: white;
+    color: black;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.restaurant-details {
+    flex: 1;
+    max-width: 600px;
+    margin-right: 20px;
+}
+
+.restaurant-details .card {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.card__imgframe {
+    width: 100%;
+    height: auto;
+}
+
+.card__textbox {
+    padding: 15px;
+}
+
+.card__titletext {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.card__overviewtext p {
+    margin: 0;
+    padding: 5px 0;
+}
+
+/* タブレット・スマートフォン用のレスポンシブデザイン */
+@media (max-width: 768px) {
+    .reservation-container {
+        min-width: auto;
+        /* 最小幅の設定を解除 */
+        height: auto;
+        /* 高さを自動調整 */
+        padding: 15px;
+    }
+
+    .reservation-container h3 {
+        font-size: 20px;
+    }
+
+    .reservation-container input[type="date"],
+    .reservation-container input:not([type="date"]),
+    .reservation-container select {
+        width: 100%;
+        margin-bottom: 10px;
+        padding: 8px;
+    }
+
+    .reservation-container .btn {
+        font-size: 14px;
+        margin-top: 20px;
+    }
+
+    #reservation-details {
+        width: 100%;
+    }
+
+    .restaurant-details {
+        max-width: 100%;
+        margin-right: 0;
+    }
+
+    .restaurant-details .card {
+        margin-bottom: 20px;
+    }
+
+    .card__titletext {
+        font-size: 1.2rem;
+    }
+
+    .card__textbox {
+        padding: 10px;
+    }
+
+    .card__overviewtext p {
+        font-size: 14px;
+    }
+  
 /* 768px以下のスクリーンサイズ用のレスポンシブデザイン */
 @media (max-width: 768px) {
     main {
@@ -127,4 +239,5 @@ main {
         padding: 20px;
         height: auto;
     }
+ main
 }
