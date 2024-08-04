@@ -138,48 +138,64 @@
 
 /* タブレット・スマートフォン用のレスポンシブデザイン */
 @media (max-width: 768px) {
+    .container {
+        justify-content: center;
+        /* Center content horizontally */
+    }
+
+    .row {
+        justify-content: center;
+        /* Center content horizontally */
+    }
+
     .search-bar {
-        flex-direction: column;
-        align-items: center;
+        flex-direction: row;
+        /* Align items horizontally */
+        justify-content: flex-start;
+        /* Align items to the start */
+        padding: 10px;
+        /* Adjust padding for smaller screens */
     }
 
     .search-group {
+        flex-direction: row;
+        /* Align items horizontally */
         width: 100%;
-        flex-direction: column;
+        /* Ensure the search group takes full width */
         gap: 10px;
+        /* Adjust gap between items */
     }
 
     .search-group .form-control {
-        width: 100%;
+        flex: 1;
+        min-width: 120px;
+        /* Adjust min-width for smaller screens */
     }
 
     .search-group .btn-primary {
-        width: 100%;
         margin-left: 0;
+        /* Remove margin for better spacing */
     }
 
     .card {
         width: 100%;
-        max-width: 100%;
+        /* Make cards responsive */
+        max-width: 300px;
+        /* Limit max-width for cards */
     }
 
-    .container {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .btn-group {
-        flex-direction: column;
-        align-items: center;
+    .card__textbox {
+        padding: 15px;
+        /* Adjust padding for smaller screens */
     }
 
     .btn-primary {
-        width: 100%;
-        margin-right: 0;
-        margin-bottom: 10px;
+        font-size: 0.9rem;
+        /* Adjust font size for smaller screens */
     }
 
     .favorite-button {
-        width: 100%;
+        font-size: 0.9rem;
+        /* Adjust font size for smaller screens */
     }
 }

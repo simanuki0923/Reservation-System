@@ -17,18 +17,13 @@
     font-size: 1em;
 }
 
-/* ボタンを右側に寄せて横並びにするためのスタイル */
 .form-actions {
     display: flex;
     justify-content: flex-end;
-    /* ボタンを右寄せ */
     gap: 10px;
-    /* ボタン間のスペース */
     margin-top: 20px;
-    /* 上部の余白 */
 }
 
-/* ボタンの基本スタイル */
 .btn {
     padding: 10px 20px;
     font-size: 1em;
@@ -37,10 +32,8 @@
     cursor: pointer;
     transition: background-color 0.3s;
     text-align: center;
-    /* テキストを中央寄せ */
 }
 
-/* 更新ボタンのスタイル */
 .btn-primary {
     background-color: #007bff;
     color: #fff;
@@ -50,7 +43,6 @@
     background-color: #0056b3;
 }
 
-/* 削除ボタンのスタイル */
 .btn-danger {
     background-color: #dc3545;
     color: #fff;
@@ -60,7 +52,6 @@
     background-color: #c82333;
 }
 
-/* 戻るボタンのスタイル */
 .btn-secondary {
     background-color: #6c757d;
     color: #fff;
@@ -88,10 +79,11 @@ textarea.form-control {
     }
 
     .form-actions {
-        flex-direction: column;
+        flex-direction: row;
         /* ボタンを縦に並べる */
         align-items: center;
         /* 中央寄せ */
+        justify-content: center;
     }
 
     .form-actions .btn {
