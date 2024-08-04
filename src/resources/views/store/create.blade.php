@@ -31,7 +31,7 @@
                 <input type="url" name="image_url" id="image_url" class="form-control">
             </div>
             <div class="form-submit">
-                <a href="{{ route('store.dashboard') }}" class="btn btn-secondary">戻る</a>
+                <a href="{{ route('store.dashboard') }}" class="btn btn-secondary center-text">戻る</a>
                 <button type="submit" class="btn btn-primary">作成</button>
             </div>
         </form>

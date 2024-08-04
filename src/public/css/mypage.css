@@ -35,22 +35,18 @@ h1 {
     border-radius: 8px;
     margin-bottom: 20px;
     font-size: 15px;
-    height: auto;
+    position: relative;
+    /* Ensure this is relative */
 }
 
-.reservation-details h3 {
-    margin-top: 0;
-    font-size: 18px;
-}
-
-.reservation-details p {
+.reservation-delete-form {
+    position: absolute;
+    top: 10px;
+    /* Adjust top position */
+    right: 10px;
+    /* Adjust right position */
     margin: 0;
-    padding: 5px 0;
-}
-
-.reservation-value {
-    text-align: left;
-    margin-left: 80px;
+    /* Remove default margin */
 }
 
 button {
@@ -60,6 +56,12 @@ button {
     border: none;
     border-radius: 10px;
     cursor: pointer;
+    padding: 5px 10px;
+}
+
+.reservation-value {
+    text-align: left;
+    margin-left: 80px;
 }
 
 .reservation-value p {
@@ -80,7 +82,7 @@ button {
 }
 
 .card {
-    width: 250px;
+    width: 100%;
     background: #fff;
     border-radius: 8px;
     overflow: hidden;
@@ -150,7 +152,7 @@ button {
 }
 
 .btn-danger {
-    background: none;
+    background-color: transparent;
     border: none;
     padding: 0;
 }
@@ -187,67 +189,109 @@ button {
 
 /* タブレット・スマートフォン用のレスポンシブデザイン */
 @media (max-width: 768px) {
+    h1 {
+        font-size: 28px;
+        /* Adjust font size for smaller screens */
+    }
+
     .mypage-container {
-        flex-direction: column;
-        /* 縦並びにする */
         padding: 10px;
+        flex-direction: column;
+        /* Stack items vertically on smaller screens */
     }
 
     .reservations,
     .favorites {
         width: 100%;
+        /* Full width for smaller screens */
         margin-right: 0;
+        /* Remove margin-right to fit full width */
         margin-bottom: 20px;
+        /* Add bottom margin for spacing */
     }
 
-    .reservation-card {
-        padding: 15px;
+    .reservation-card,
+    .card {
+        width: 100%;
+        /* Full width for cards */
+        margin: 0;
+        /* Remove margin to fit within container */
     }
 
     .reservation-details {
-        padding: 15px;
         font-size: 14px;
+        /* Adjust font size for readability */
+        padding: 15px;
+        /* Adjust padding for better fit */
     }
 
-    .reservation-details h3 {
-        font-size: 16px;
+    .reservation-delete-form {
+        top: 5px;
+        /* Adjust position */
+        right: 5px;
+        /* Adjust position */
     }
 
-    .card {
-        width: 100%;
-        max-width: 300px;
-        /* カードの最大幅を設定 */
+    button {
+        font-size: 18px;
+        /* Adjust font size for smaller screens */
+        padding: 8px 15px;
+        /* Adjust padding for better fit */
+    }
+
+    .reservation-value {
+        margin-left: 0;
+        /* Remove left margin for better fit */
+    }
+
+    .favorite-cards {
+        flex-direction: column;
+        /* Stack cards vertically */
+        gap: 15px;
+        /* Adjust gap for better fit */
+        overflow-x: visible;
+        /* Allow vertical overflow if needed */
     }
 
     .card__titletext {
         font-size: 18px;
+        /* Adjust font size for readability */
     }
 
     .card__overviewtext {
         font-size: 14px;
+        /* Adjust font size for readability */
+    }
+
+    .btn-primary {
+        font-size: 0.9rem;
+        /* Adjust font size for smaller screens */
+        padding: 8px 12px;
+        /* Adjust padding for better fit */
+    }
+
+    .favorite-button {
+        font-size: 0.9rem;
+        /* Adjust font size for smaller screens */
+        padding: 8px 15px;
+        /* Adjust padding for better fit */
+    }
+
+    .modal-content {
+        padding: 15px;
+        /* Adjust padding for smaller screens */
+    }
+
+    .modal-header,
+    .modal-body {
+        font-size: 14px;
+        /* Adjust font size for readability */
     }
 
     .form-control {
-        margin-left: 0;
-        width: auto;
-    }
-
-    .form__input-item {
         width: 100%;
-        font-size: 1rem;
-    }
-
-    .btn-primary,
-    .favorite-button {
-        padding: 8px 12px;
-        font-size: 0.9rem;
-    }
-
-    .error__item {
-        font-size: 1.2rem;
-    }
-
-    h1 {
-        font-size: 28px;
+        /* Full width for smaller screens */
+        margin-left: 0;
+        /* Remove left margin for better fit */
     }
 }

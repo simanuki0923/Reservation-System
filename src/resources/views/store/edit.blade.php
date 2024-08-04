@@ -32,15 +32,13 @@
                 <input type="url" name="image_url" id="image_url" class="form-control" value="{{ $store->image_url }}">
             </div>
             <div class="form-actions">
-                <button type="submit" class="btn btn-primary">更新</button>
-                <form action="{{ route('store.destroy', $store->id) }}" method="POST" style="display: inline;">
-                    @csrf
-                    @method('DELETE')
-                    <button type="submit" class="btn btn-danger">削除</button>
-                </form>
-                <a href="{{ route('store.dashboard') }}" class="btn btn-secondary">戻る</a>
-            </div>
-        </form>
-    </div>
+    <button type="submit" class="btn btn-primary">更新</button>
+    <form action="{{ route('store.destroy', $store->id) }}" method="POST">
+        @csrf
+        @method('DELETE')
+        <button type="submit" class="btn btn-danger">削除</button>
+    </form>
+    <a href="{{ route('store.dashboard') }}" class="btn btn-secondary">戻る</a>
+</div>
 </main>
 @endsection
