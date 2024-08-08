@@ -1,35 +1,55 @@
-@extends('layouts.app')
-
-@section('css')
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <title>Rese</title>
+    <link rel="stylesheet" href="{{ asset('css/sanitize.css') }}">
     <link rel="stylesheet" href="{{ asset('css/admin/dashboard.css') }}">
-@endsection
-
-@section('content')
+    @yield('css')
+</head>
+<body>
 <main>
     <div class="container">
         <h1>管理者画面</h1>
         
-        <!-- 店舗情報作成リンク -->
-        <a href="{{ route('store.create') }}" class="btn btn-primary">店舗情報の作成</a>
+        <table class="table">
+            <tbody>
+                <tr>
+                    <td>
+                        <a href="{{ route('store.create') }}" class="btn btn-primary">店舗情報の作成</a>
+                    </td>
+                    <td>
+                        <a href="{{ route('store.reservations') }}" class="btn btn-primary">予約情報の確認</a>
+                    </td>
+                    <td>
+                        <a href="{{ route('store.upload') }}" class="btn btn-primary">画像アップロード</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <a href="{{ route('mail.index') }}" class="btn btn-primary">メール送信</a>
+                    </td>
+                    <td>
+                        <a href="{{ route('store.qr.scan') }}" class="btn btn-primary">QRコードスキャン</a>
+                    </td>
+                    <td>
+                        <a href="{{ route('payment.create') }}" class="btn btn-primary">決済フォーム</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <a href="{{ route('admin.logout') }}" class="btn btn-secondary"
+                           onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                           ログアウト
+                        </a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
 
-        <!-- 予約情報確認リンク -->
-        <a href="{{ route('store.reservations') }}" class="btn btn-primary">予約情報の確認</a>
-
-        <!-- 画像アップロードリンク -->
-        <a href="{{ route('store.upload') }}" class="btn btn-primary">画像アップロード</a>
-
-        <!-- メール送信リンク -->
-        <a href="{{ route('mail.index') }}" class="btn btn-primary">メール送信</a>
-
-        <!-- QRコードスキャンリンク -->
-        <a href="{{ route('store.qr.scan') }}" class="btn btn-primary">QRコードスキャン</a>
-
-        <!-- ログアウトリンク -->
-        <a href="{{ route('admin.logout') }}" class="btn btn-secondary"
-           onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-           ログアウト
-        </a>
-        
         <!-- ログアウトフォーム -->
         <form id="logout-form" action="{{ route('admin.logout') }}" method="POST" style="display: none;">
             @csrf
@@ -62,4 +82,5 @@
         @endif
     </div>
 </main>
-@endsection
+</body>
+</html>
