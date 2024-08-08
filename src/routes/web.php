@@ -17,6 +17,7 @@ use App\Http\Controllers\ImageUploadController;
 use App\Http\Controllers\MailController;
 use App\Http\Controllers\Auth\CustomEmailVerificationController;
 use App\Http\Controllers\QRController;
+use App\Http\Controllers\PaymentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -102,6 +103,11 @@ Route::middleware(['web'])->group(function () {
         Route::post('/store/check-reservation', [StoreRepresentativeController::class, 'checkReservation'])->name('store.check.reservation');
 
         Route::get('/store/reservations/{id}', [StoreRepresentativeController::class, 'show'])->name('store.reservation.detail');
+
+        Route::prefix('payment')->name('payment.')->group(function () {
+        Route::get('/create', [PaymentController::class, 'create'])->name('create');
+        Route::post('/store', [PaymentController::class, 'store'])->name('store');
+      });
 
 
     });

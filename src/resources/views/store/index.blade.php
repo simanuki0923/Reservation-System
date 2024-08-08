@@ -1,10 +1,15 @@
-@extends('layouts.app')
-
-@section('css')
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <title>Rese</title>
+    <link rel="stylesheet" href="{{ asset('css/sanitize.css') }}">
     <link rel="stylesheet" href="{{ asset('css/admin/index_images.css') }}">
-@endsection
-
-@section('content')
+</head>
+<body>
 <main>
     <div class="container">
         <form action="{{ route('store.upload') }}" method="POST" class="upload-form" enctype="multipart/form-data">
@@ -32,4 +37,5 @@
         @endif
     </div>
 </main>
-@endsection
+</body>
+</html>
