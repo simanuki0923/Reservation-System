@@ -21,7 +21,8 @@
         <!-- メール送信リンク -->
         <a href="{{ route('mail.index') }}" class="btn btn-primary">メール送信</a>
 
-        
+        <!-- QRコードスキャンリンク -->
+        <a href="{{ route('store.qr.scan') }}" class="btn btn-primary">QRコードスキャン</a>
 
         <!-- ログアウトリンク -->
         <a href="{{ route('admin.logout') }}" class="btn btn-secondary"

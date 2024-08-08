@@ -8,6 +8,7 @@ use App\Models\Store;
 use App\Models\Admin;
 use App\Models\Reservation;
 use App\Models\Image;
+use SimpleSoftwareIO\QrCode\Facades\QrCode;
 
 
 class StoreRepresentativeController extends Controller
@@ -61,7 +62,7 @@ class StoreRepresentativeController extends Controller
 
     public function reservations()
     {
-    $reservations = Reservation::with('restaurant')->get();
+    $reservations = Reservation::with(['restaurant', 'user'])->get();
 
     return view('store.reservations', compact('reservations'));
     }
@@ -128,5 +129,41 @@ class StoreRepresentativeController extends Controller
         }
 
         return redirect()->route('store.upload')->with('success', '画像がアップロードされました。');
+    }
+
+    public function qrScan()
+    {
+        return view('store.qr-scan');
+    }
+
+    public function checkReservation(Request $request)
+    {
+        $data = $request->input('qr_code_data'); // QRコードのデータを受け取る
+
+        // デコードして予約IDを取得
+        $decodedData = json_decode($data, true);
+        $reservationId = $decodedData['reservation_id'];
+
+        // 予約情報を取得
+        $reservation = Reservation::with('user', 'restaurant')->find($reservationId);
+
+        if ($reservation) {
+            return response()->json([
+                'status' => 'success',
+                'reservation' => $reservation
+            ]);
+        } else {
+            return response()->json([
+                'status' => 'error',
+                'message' => '予約情報が見つかりませんでした。'
+            ]);
+        }
+    }
+
+   public function show($id)
+    {
+    $reservation = Reservation::with('user', 'restaurant')->findOrFail($id);
+
+    return view('store.reservation-detail', compact('reservation'));
     }
 }

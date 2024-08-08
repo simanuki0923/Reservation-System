@@ -64,6 +64,12 @@ h1 {
     overflow-x: auto;
 }
 
+/* QRコードのサイズ調整 */
+.qr-code img {
+    width: 20px;
+    height: 20px;
+}
+
 /* タブレット・スマートフォン用のレスポンシブデザイン */
 @media (max-width: 768px) {
     .container {
@@ -90,5 +96,10 @@ h1 {
 
     .table-container {
         margin-top: 15px;
+    }
+
+    .qr-code img {
+        width: 20px;
+        height: 20px;
     }
 }

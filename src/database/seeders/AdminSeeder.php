@@ -34,6 +34,14 @@ class AdminSeeder extends Seeder
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
+
+            [
+                'name' => 'admin03',
+                'password' => Hash::make('admin'),
+                'role' => 'users',
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
         ]);
     }
 }

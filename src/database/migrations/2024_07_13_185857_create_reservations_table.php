@@ -15,16 +15,15 @@ class CreateReservationsTable extends Migration
     {
         Schema::create('reservations', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('user_id')->nullable();
             $table->unsignedBigInteger('restaurant_id');
-
             $table->date('reservation_date');
             $table->time('reservation_time');
             $table->integer('number_of_people');
-            $table->string('status')->nullable(); 
+            $table->text('qr_code')->nullable();
             $table->timestamps();
 
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('set null');
             $table->foreign('restaurant_id')->references('id')->on('restaurants')->onDelete('cascade');
         });
     }

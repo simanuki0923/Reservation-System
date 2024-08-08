@@ -1,9 +1,0 @@
-{
-    "require": {
-        "laravel/ui": "^4.5"
-    },
-    "require-dev": {
-        "laravel-lang/lang": "~7.0",
-        "laravel/sail": "^1.31"
-    }
-}
