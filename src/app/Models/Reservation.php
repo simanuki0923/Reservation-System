@@ -16,6 +16,7 @@ class Reservation extends Model
         'reservation_date',
         'reservation_time',
         'number_of_people',
+        'qr_code',
     ];
 
     public function user()
@@ -32,5 +33,4 @@ class Reservation extends Model
    {
     return $this->hasMany(Review::class);
    }
-
 }

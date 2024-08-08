@@ -2,13 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Jobs\SendReservationDetails;
 use App\Http\Requests\ReservationRequest;
 use App\Models\Restaurant;
 use App\Models\Reservation;
-use App\Jobs\SendReservationDetails;
 use Illuminate\Support\Facades\Auth;
 use Carbon\Carbon;
-
+use SimpleSoftwareIO\QrCode\Facades\QrCode;
 
 class ReservationController extends Controller
 {
@@ -29,11 +29,31 @@ class ReservationController extends Controller
         'reservation_date' => $request->input('date'),
         'reservation_time' => $request->input('time'),
         'number_of_people' => $request->input('number_of_people'),
-        'status' => 'pending'
+        // ここではQRコードの生成をまだ行わない
     ]);
 
+    // QRコードを生成するためのデータを作成
+    $data = [
+        'reservation_id' => $reservation->id,
+        'restaurant_id' => $request->input('restaurant_id'),
+        'date' => $request->input('date'),
+        'time' => $request->input('time'),
+    ];
+    
+    // JSON形式でデータをエンコード
+    $qrCodeData = json_encode($data);
+
+    // QRコードを生成
+    $qrCode = QrCode::size(200)->generate($qrCodeData);
+
+    // QRコードを文字列として保存する
+    $qrCodeString = (string) $qrCode;
+
+    // 予約情報を更新してQRコードを保存する
+    $reservation->update(['qr_code' => $qrCodeString]);
+
     // ジョブをディスパッチし、予約のインスタンスを渡す
-    SendReservationDetails::dispatch($reservation)
+    dispatch(new SendReservationDetails($reservation))
         ->delay(Carbon::parse($reservation->reservation_date)->setTime(9, 0));
 
     return redirect()->route('done')->with('success', '予約が完了しました');
@@ -43,4 +63,6 @@ class ReservationController extends Controller
     {
         return view('done');
     }
+
+
 }

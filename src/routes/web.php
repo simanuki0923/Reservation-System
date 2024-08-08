@@ -16,6 +16,7 @@ use App\Http\Controllers\StoreRepresentativeController;
 use App\Http\Controllers\ImageUploadController;
 use App\Http\Controllers\MailController;
 use App\Http\Controllers\Auth\CustomEmailVerificationController;
+use App\Http\Controllers\QRController;
 
 /*
 |--------------------------------------------------------------------------
@@ -45,7 +46,7 @@ Route::middleware(['web'])->group(function () {
         Route::delete('/reservation/{id}', [MypageController::class, 'destroyReservation'])->name('reservation.destroy');
         Route::put('/reservation/{id}', [MypageController::class, 'updateReservation'])->name('reservation.update');
         Route::get('/reviews/create', [ReviewController::class, 'create'])->name('review.create');
-        Route::post('/reviews', [ReviewController::class, 'store'])->name('review.store');
+        Route::post('/reviews', [ReviewController::class, 'store'])->name('review.store');   
     });
 
     //メール認証
@@ -97,8 +98,11 @@ Route::middleware(['web'])->group(function () {
         Route::get('/mail', [MailController::class, 'index'])->name('mail.index');
         Route::post('/mail', [MailController::class, 'send'])->name('mail.send');
 
+        Route::get('/store/qr-scan', [StoreRepresentativeController::class, 'qrScan'])->name('store.qr.scan');
+        Route::post('/store/check-reservation', [StoreRepresentativeController::class, 'checkReservation'])->name('store.check.reservation');
+
+        Route::get('/store/reservations/{id}', [StoreRepresentativeController::class, 'show'])->name('store.reservation.detail');
+
 
     });
-
-    
 });
