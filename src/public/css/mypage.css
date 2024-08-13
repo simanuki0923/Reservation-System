@@ -36,17 +36,13 @@ h1 {
     margin-bottom: 20px;
     font-size: 15px;
     position: relative;
-    /* Ensure this is relative */
 }
 
 .reservation-delete-form {
     position: absolute;
     top: 10px;
-    /* Adjust top position */
     right: 10px;
-    /* Adjust right position */
     margin: 0;
-    /* Remove default margin */
 }
 
 button {
@@ -79,10 +75,12 @@ button {
     flex-wrap: wrap;
     gap: 20px;
     overflow-x: auto;
+    justify-content: flex-start;
 }
 
 .card {
-    width: 100%;
+    width: 250px;
+    /* Set the width of each card to 200px */
     background: #fff;
     border-radius: 8px;
     overflow: hidden;
@@ -92,7 +90,10 @@ button {
 
 .card__imgframe {
     width: 100%;
-    height: auto;
+    height: 150px;
+    /* Adjust height to maintain aspect ratio */
+    object-fit: cover;
+    /* Ensure the image fits within the frame */
 }
 
 .card__textbox {
@@ -102,7 +103,8 @@ button {
 }
 
 .card__titletext {
-    font-size: 20px;
+    font-size: 16px;
+    /* Adjust font size for title */
     font-weight: bold;
 }
 
@@ -115,7 +117,7 @@ button {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 10px 10px;
+    padding: 10px;
 }
 
 .btn-primary {
@@ -189,109 +191,24 @@ button {
 
 /* タブレット・スマートフォン用のレスポンシブデザイン */
 @media (max-width: 768px) {
-    h1 {
-        font-size: 28px;
-        /* Adjust font size for smaller screens */
-    }
-
     .mypage-container {
-        padding: 10px;
         flex-direction: column;
-        /* Stack items vertically on smaller screens */
+        align-items: center;
     }
 
     .reservations,
     .favorites {
         width: 100%;
-        /* Full width for smaller screens */
         margin-right: 0;
-        /* Remove margin-right to fit full width */
         margin-bottom: 20px;
-        /* Add bottom margin for spacing */
-    }
-
-    .reservation-card,
-    .card {
-        width: 100%;
-        /* Full width for cards */
-        margin: 0;
-        /* Remove margin to fit within container */
-    }
-
-    .reservation-details {
-        font-size: 14px;
-        /* Adjust font size for readability */
-        padding: 15px;
-        /* Adjust padding for better fit */
-    }
-
-    .reservation-delete-form {
-        top: 5px;
-        /* Adjust position */
-        right: 5px;
-        /* Adjust position */
-    }
-
-    button {
-        font-size: 18px;
-        /* Adjust font size for smaller screens */
-        padding: 8px 15px;
-        /* Adjust padding for better fit */
-    }
-
-    .reservation-value {
-        margin-left: 0;
-        /* Remove left margin for better fit */
     }
 
     .favorite-cards {
         flex-direction: column;
-        /* Stack cards vertically */
-        gap: 15px;
-        /* Adjust gap for better fit */
-        overflow-x: visible;
-        /* Allow vertical overflow if needed */
+        align-items: center;
     }
 
-    .card__titletext {
-        font-size: 18px;
-        /* Adjust font size for readability */
-    }
-
-    .card__overviewtext {
-        font-size: 14px;
-        /* Adjust font size for readability */
-    }
-
-    .btn-primary {
-        font-size: 0.9rem;
-        /* Adjust font size for smaller screens */
-        padding: 8px 12px;
-        /* Adjust padding for better fit */
-    }
-
-    .favorite-button {
-        font-size: 0.9rem;
-        /* Adjust font size for smaller screens */
-        padding: 8px 15px;
-        /* Adjust padding for better fit */
-    }
-
-    .modal-content {
-        padding: 15px;
-        /* Adjust padding for smaller screens */
-    }
-
-    .modal-header,
-    .modal-body {
-        font-size: 14px;
-        /* Adjust font size for readability */
-    }
-
-    .form-control {
-        width: 100%;
-        /* Full width for smaller screens */
-        margin-left: 0;
-        /* Remove left margin for better fit */
+    .card {
+        width: 90%;
     }
 }
