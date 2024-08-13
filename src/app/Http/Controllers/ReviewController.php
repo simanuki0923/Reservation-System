@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Http\Requests\StoreReviewRequest;
 use App\Models\Review;
 use App\Models\Restaurant;
 use App\Models\Reservation;
@@ -18,13 +18,6 @@ class ReviewController extends Controller
 
     public function store(Request $request)
 {
-    $request->validate([
-        'restaurant_id' => 'required|exists:restaurants,id',
-        'reservation_id' => 'required|exists:reservations,id',
-        'rating' => 'required|integer|min:1|max:5',
-        'comment' => 'nullable|string|max:255',
-    ]);
-
     Review::create([
         'user_id' => auth()->id(),
         'restaurant_id' => $request->restaurant_id,

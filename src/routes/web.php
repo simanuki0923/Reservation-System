@@ -29,11 +29,6 @@ use App\Http\Controllers\PaymentController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::middleware(['web'])->group(function () {
-    Route::get('/register', [RegisterController::class, 'showRegistrationForm'])->name('register');
-    Route::post('/register', [RegisterController::class, 'register']);
-    Route::view('/thanks', 'thanks')->name('thanks');
-
     Route::get('/shop_all', [RestaurantController::class, 'index'])->name('shop_all');
     Route::get('/detail/{id}', [ReservationController::class, 'show'])->name('restaurant.show');
     Route::post('/reservation', [ReservationController::class, 'store'])->name('reservation.store');
@@ -111,4 +106,3 @@ Route::middleware(['web'])->group(function () {
 
 
     });
-});

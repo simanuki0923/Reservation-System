@@ -2,8 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Validator;
+use App\Http\Requests\SendMailRequest;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\SendTestMail;
 
@@ -14,26 +13,8 @@ class MailController extends Controller
         return view('mail.index');
     }
 
-    public function send(Request $request)
+    public function send(SendMailRequest $request)
     {
-        $rules = [
-            'name' => 'required',
-            'message' => 'required'
-        ];
-
-        $messages = [
-            'name.required' => '名前を入力してください',
-            'message.required' => 'メッセージを入力してください。'
-        ];
-
-        $validator = Validator::make($request->all(), $rules, $messages);
-
-        if ($validator->fails()) {
-            return redirect('/mail')
-                ->withErrors($validator)
-                ->withInput();
-        }
-
         $data = $validator->validated();
 
         Mail::to('admin@hoge.co.jp')->send(new SendTestMail($data));

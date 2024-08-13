@@ -15,13 +15,8 @@ class AdminLoginController extends Controller
         return view('admin.login');
     }
 
-    public function store(Request $request)
+    public function store(AdminLoginRequest $request)
     {
-        $request->validate([
-            'name' => 'required|string',
-            'password' => 'required|string',
-        ]);
-
         $credentials = $request->only('name', 'password');
 
         if (Auth::guard('admin')->attempt($credentials)) {
