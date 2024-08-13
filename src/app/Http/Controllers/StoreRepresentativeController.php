@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
+use App\Http\Requests\StoreStoreRequest;
+use App\Http\Requests\UpdateStoreRequest;
+use App\Http\Requests\UploadImageRequest;
 use App\Models\Store;
 use App\Models\Admin;
 use App\Models\Reservation;
@@ -39,16 +42,8 @@ class StoreRepresentativeController extends Controller
         return view('store.create');
     }
 
-    public function store(Request $request)
+    public function store(StoreStoreRequest $request)
    {
-    $request->validate([
-        'name' => 'required|string|max:255',
-        'area' => 'required|string|max:255',
-        'genre' => 'required|string|max:255',
-        'description' => 'required|string',
-        'image_url' => 'nullable|url',
-    ]);
-
     $store = new Store();
     $store->name = $request->input('name');
     $store->area = $request->input('area');
@@ -73,16 +68,8 @@ class StoreRepresentativeController extends Controller
         return view('store.edit', compact('store'));
     }
 
-    public function update(Request $request, $id)
+    public function update(UpdateStoreRequest $request, $id)
    {
-    $request->validate([
-        'name' => 'required|string|max:255',
-        'area' => 'required|string|max:255',
-        'genre' => 'required|string|max:255',
-        'description' => 'required|string',
-        'image_url' => 'nullable|url',
-    ]);
-
     $store = Store::findOrFail($id);
     $store->name = $request->input('name');
     $store->area = $request->input('area');
@@ -114,12 +101,8 @@ class StoreRepresentativeController extends Controller
         return view('store.index', compact('images')); // ビューに画像一覧を渡す
     }
 
-    public function upload(Request $request)
+    public function upload(UploadImageRequest $request)
     {
-        $request->validate([
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
-        ]);
-
         if ($request->hasFile('image')) {
             $file = $request->file('image');
             $path = $file->store('public/images');
