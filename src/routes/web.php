@@ -29,21 +29,24 @@ use App\Http\Controllers\PaymentController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-    Route::get('/shop_all', [RestaurantController::class, 'index'])->name('shop_all');
-    Route::get('/detail/{id}', [ReservationController::class, 'show'])->name('restaurant.show');
-    Route::post('/reservation', [ReservationController::class, 'store'])->name('reservation.store');
-    Route::get('/done', [ReservationController::class, 'done'])->name('done');
-    Route::get('/favorite', [FavoriteController::class, 'index'])->name('favorite.index');
-    Route::post('/favorites/toggle/{id}', [FavoriteController::class, 'toggle'])->name('favorites.toggle');
+Route::get('/shop_all', [RestaurantController::class, 'index'])->name('shop_all');
+// Corrected to ReviewController
+Route::post('/reservation', [ReservationController::class, 'store'])->name('reservation.store');
+Route::get('/done', [ReservationController::class, 'done'])->name('done');
+Route::get('/favorite', [FavoriteController::class, 'index'])->name('favorite.index');
+Route::post('/favorites/toggle/{id}', [FavoriteController::class, 'toggle'])->name('favorites.toggle');
 
-    Route::middleware('auth')->group(function () {
-        Route::get('/', [LoginController::class, 'shop_all'])->name('home');
-        Route::get('/mypage', [MypageController::class, 'mypage'])->name('mypage');
-        Route::delete('/reservation/{id}', [MypageController::class, 'destroyReservation'])->name('reservation.destroy');
-        Route::put('/reservation/{id}', [MypageController::class, 'updateReservation'])->name('reservation.update');
-        Route::get('/reviews/create', [ReviewController::class, 'create'])->name('review.create');
-        Route::post('/reviews', [ReviewController::class, 'store'])->name('review.store');   
-    });
+Route::middleware('auth')->group(function () {
+    Route::get('/', [LoginController::class, 'shop_all'])->name('home');
+    Route::get('/mypage', [MypageController::class, 'mypage'])->name('mypage');
+    Route::delete('/reservation/{id}', [MypageController::class, 'destroyReservation'])->name('reservation.destroy');
+    Route::put('/reservation/{id}', [MypageController::class, 'updateReservation'])->name('reservation.update');
+    
+    Route::get('/restaurant/{id}', [ReviewController::class, 'show'])->name('restaurant.show');
+    Route::get('/review/create/{restaurantId?}', [ReviewController::class, 'create'])->name('review.create');
+    Route::post('/review/store', [ReviewController::class, 'store'])->name('review.store');
+
+});
 
     //メール認証
     Route::get('/email/verify', function () {

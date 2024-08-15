@@ -26,6 +26,15 @@ class ReviewController extends Controller
         'comment' => $request->comment,
     ]);
 
-    return redirect()->route('review.create')->with('success', 'レビューが投稿されました。');
+    return redirect()->route('restaurant.show', ['id' => $request->restaurant_id])->with('success', 'レビューが投稿されました。');
 }
+
+public function show($id)
+{
+    $restaurant = Restaurant::findOrFail($id);
+    $reviews = Review::where('restaurant_id', $id)->get();
+
+    return view('detail', compact('restaurant', 'reviews'));
+}
+
 }
