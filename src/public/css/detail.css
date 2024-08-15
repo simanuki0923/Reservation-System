@@ -8,43 +8,11 @@ main {
     box-sizing: border-box;
 }
 
-
 .left-container,
 .right-container {
     flex: 1;
     max-width: 50%;
     box-sizing: border-box;
-
-.restaurant-details,
-.reservation-container {
-    flex: 1;
-    margin: 10px;
-}
-
-.restaurant-details .card {
-    background-color: #fff;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-}
-
-.card__imgframe {
-    width: 100%;
-    height: auto;
-}
-
-.card__textbox {
-    padding: 15px;
-}
-
-.card__titletext {
-    font-size: 1.5rem;
-    font-weight: bold;
-}
-
-.card__overviewtext p {
-    margin: 0;
-    padding: 5px 0;
 }
 
 .left-container {
@@ -64,7 +32,6 @@ main {
 
 .restaurant-details {
     background-color: #007bff;
-
     /* Darker blue for restaurant details */
     color: #333;
     /* Dark text color for restaurant details */
@@ -81,15 +48,6 @@ main {
 .card__imgframe {
     width: 100%;
     height: auto;
-    color: white;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    display: flex;
-    flex-direction: column;
-    box-sizing: border-box;
-    height: 100%;
-
 }
 
 .card__textbox {
@@ -147,40 +105,6 @@ main {
 
 .review-btn-container {
     margin-top: 20px;
-.reservation-container .form-label {
-    color: white;
-    display: block;
-    margin-bottom: 5px;
-}
-
-.reservation-container input[type="date"],
-.reservation-container select {
-    margin-bottom: 15px;
-    width: 100%;
-    padding: 10px;
-    border-radius: 5px;
-    border: none;
-    box-sizing: border-box;
-}
-
-#reservation-details {
-    margin-top: 20px;
-    background-color: #00bfff;
-    color: white;
-    padding: 10px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    box-sizing: border-box;
-    text-align: left;
-}
-
-#reservation-details p {
-    margin: 0 0 10px;
-    font-size: 16px;
-}
-
-.btn-container {
-    margin-top: auto;
     text-align: center;
 }
 
@@ -316,23 +240,4 @@ main {
         margin-top: 20px;
         text-align: center;
     }
-  
-/* 768px以下のスクリーンサイズ用のレスポンシブデザイン */
-@media (max-width: 768px) {
-    main {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .restaurant-details,
-    .reservation-container {
-        width: 100%;
-        margin: 0;
-        margin-bottom: 20px;
-    }
-
-    .reservation-container {
-        padding: 20px;
-        height: auto;
-  }
 }
