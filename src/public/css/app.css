@@ -8,7 +8,7 @@
     justify-content: center;
     align-items: center;
     z-index: 90;
-    background-color: #3584bb;
+    background-color: #007bff;
 }
 
 .menu-btn span,
@@ -104,7 +104,7 @@
 .header__logo {
     font-size: 30px;
     font-family: fantasy;
-    color: #3584bb;
+    color: #007bff;
     margin-left: 45px;
     margin-top: 0;
 }

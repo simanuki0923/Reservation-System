@@ -29,9 +29,7 @@
                    </li>
                     </form>
                     <li class="nav__item">
-                        <a class="nav__item-link" href="{{ route('mypage') }}">Mypage</a></li>
-                    <li class="nav__item">
-                        <a class="nav__item-link" href="{{ route('review.create') }}">Review</a></li>  
+                        <a class="nav__item-link" href="{{ route('mypage') }}">Mypage</a></li> 
                 @else
                     <li class="nav__item">
                         <a class="nav__item-link" href="/register">Registration</a></li>

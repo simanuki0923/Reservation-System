@@ -1,112 +1,45 @@
 main {
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: space-between;
+    align-items: flex-start;
     height: 100vh;
     background-color: #f8f9fa;
-    padding: 0 20px;
-}
-
-.reservation-container {
-    background-color: #007bff;
-    color: white;
-    padding: 10px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    width: 100%;
-    max-width: 600px;
-    min-width: 600px;
-    display: flex;
-    flex-direction: column;
-    box-sizing: border-box;
-    height: 630px;
-}
-
-.reservation-container h3 {
-    margin-bottom: 20px;
-    font-size: 24px;
-}
-
-.reservation-container .form-label {
-    color: white;
-}
-
-.reservation-container input[type="date"] {
-    margin-bottom: 15px;
-    width: 150px;
-    padding: 10px;
-    border-radius: 5px;
-    border: none;
+    padding: 20px;
     box-sizing: border-box;
 }
 
-.reservation-container input:not([type="date"]),
-.reservation-container select {
-    margin-bottom: 15px;
-    width: 200px;
-    padding: 10px;
-    border-radius: 5px;
-    border: none;
-    box-sizing: border-box;
-}
-
-.btn-container {
-    margin-top: auto;
-    /* ボタンを下に移動 */
-    text-align: center;
-}
-
-.reservation-container .btn {
-    background-color: hsl(231, 100%, 49%);
-    border: none;
-    padding: 15px;
-    border-radius: 5px;
-    cursor: pointer;
-    width: 100%;
-    color: white;
-    font-size: 15px;
-    margin-top: 150px;
-}
-
-.reservation-container .btn:hover {
-    background-color: #0131f3;
-}
-
-#reservation-details {
-    margin-top: 1px;
-    background-color: #00bfff;
-    color: white;
-    padding: 1px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    width: 450px;
-    box-sizing: border-box;
-    text-align: left;
-}
-
-#reservation-details p {
-    margin-bottom: 10px;
-    font-size: 16px;
-    color: white;
-}
-
-.reservation-details {
-    margin-top: 20px;
-    background-color: white;
-    color: black;
-    padding: 15px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.restaurant-details {
+.left-container,
+.right-container {
     flex: 1;
-    max-width: 600px;
+    max-width: 50%;
+    box-sizing: border-box;
+}
+
+.left-container {
     margin-right: 20px;
 }
 
+.restaurant-details,
+.reservation-container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    /* Added padding to enhance the appearance */
+}
+
+.restaurant-details {
+    background-color: #007bff;
+    /* Darker blue for restaurant details */
+    color: #333;
+    /* Dark text color for restaurant details */
+}
+
 .restaurant-details .card {
-    background-color: #fff;
+    background-color: #ffffff;
+    /* White background for card */
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     overflow: hidden;
@@ -124,60 +57,187 @@ main {
 .card__titletext {
     font-size: 1.5rem;
     font-weight: bold;
+    color: #333;
+    /* Dark text color for title */
 }
 
 .card__overviewtext p {
     margin: 0;
     padding: 5px 0;
+    color: #333;
+    /* Dark text color for overview text */
 }
 
-/* タブレット・スマートフォン用のレスポンシブデザイン */
+.reviews-container {
+    margin-top: 20px;
+    display: flex;
+    overflow-x: auto;
+    gap: 10px;
+    padding-bottom: 10px;
+}
+
+.review {
+    min-width: 300px;
+    background-color: #ffffff;
+    /* White background for reviews */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    box-sizing: border-box;
+    color: #333;
+    /* Dark text color for reviews */
+}
+
+.review .rating {
+    margin-bottom: 10px;
+    font-size: 30px;
+}
+
+.star {
+    color: gray;
+    /* Default color for empty stars */
+}
+
+.star.filled {
+    color: yellow;
+    /* Color for filled stars */
+}
+
+.review-btn-container {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.review-btn {
+    background-color: hsl(231, 100%, 49%);
+    /* Darker blue for button */
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 16px;
+    display: inline-block;
+}
+
+.review-btn:hover {
+    background-color: hsl(231, 100%, 49%);
+    /* Even darker blue for hover */
+}
+
+.right-container {
+    margin-left: 20px;
+}
+
+.reservation-container {
+    background-color: #007bff;
+    /* Blue background color */
+    color: white;
+    /* White text color for reservation section */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.reservation-container h3 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: white;
+    /* White text color for heading */
+}
+
+.reservation-container .form-label {
+    color: white;
+    /* White text color for form labels */
+    display: block;
+    margin-bottom: 5px;
+}
+
+.reservation-container input[type="date"],
+.reservation-container select {
+    margin-bottom: 15px;
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    /* Light border for form elements */
+    box-sizing: border-box;
+}
+
+#reservation-details {
+    margin-top: 20px;
+    background-color: #00bfff;
+    color: white;
+    /* White text color for reservation details */
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+    text-align: left;
+}
+
+#reservation-details p {
+    margin: 0 0 10px;
+    font-size: 16px;
+}
+
+.btn-container {
+    margin-top: auto;
+    text-align: center;
+}
+
+.reservation-container .btn {
+    background-color: hsl(231, 100%, 49%);
+    border: none;
+    padding: 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    color: white;
+    font-size: 15px;
+}
+
+.reservation-container .btn:hover {
+    background-color: #0131f3;
+}
+
+/* Responsive design for tablets and smartphones */
 @media (max-width: 768px) {
     main {
         flex-direction: column;
-        align-items: flex-start;
         height: auto;
-        padding: 20px;
+    }
+
+    .left-container,
+    .right-container {
+        max-width: 100%;
+        width: 100%;
+        margin: 0;
+    }
+
+    .left-container {
+        margin-bottom: 20px;
     }
 
     .restaurant-details,
     .reservation-container {
         width: 100%;
-        max-width: none;
-        min-width: none;
     }
 
-    .reservation-container {
-        height: auto;
-        margin-top: 20px;
-        padding: 15px;
+    
+    .review {
+        min-width: 100%;
+        margin-bottom: 10px;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        padding: 0;
     }
 
-    .reservation-container input[type="date"],
-    .reservation-container select {
-        width: 100%;
-    }
-
-    .btn-container {
+    .review-btn-container {
         margin-top: 20px;
         text-align: center;
-    }
-
-    #reservation-details {
-        width: 100%;
-        max-width: none;
-        margin-top: 20px;
-    }
-
-    .restaurant-details .card__textbox {
-        padding: 10px;
-    }
-
-    .card__titletext {
-        font-size: 1.2rem;
-    }
-
-    .card__overviewtext p {
-        font-size: 14px;
     }
 }
