@@ -48,7 +48,7 @@
     <div class="right-container">
         <div class="reservation-container">
             <h3>予約</h3>
-            <form action="{{ route('reservation.store') }}" method="POST">
+            <form id="reservation-form" action="{{ route('reservation.store') }}" method="POST">
                 @csrf
                 <input type="hidden" name="restaurant_id" value="{{ $restaurant->id }}">
                 <div class="form-group">
@@ -89,28 +89,14 @@
                     <p>Number: <span id="reservation-number_of_people"></span>人</p>
                 </div>
                 <div class="btn-container">
-                    <button class="btn" type="submit">予約</button>
+                   <button type="button" class="btn" onclick="submitReservation()">予約</button>
                 </div>
             </form>
         </div>
     </div>
 </main>
 
-<script>
-    function updateReservationDetails() {
-        var date = document.getElementById('date').value;
-        var time = document.getElementById('time').value;
-        var numberOfPeople = document.getElementById('number_of_people').value;
+<!-- 外部JavaScriptファイルの読み込み -->
+<script src="{{ asset('js/reservation.js') }}"></script>
 
-        if (date && time && numberOfPeople) {
-            document.getElementById('reservation-date').innerText = date;
-            document.getElementById('reservation-time').innerText = time;
-            document.getElementById('reservation-number_of_people').innerText = numberOfPeople;
-
-            document.getElementById('reservation-details').style.display = 'block';
-        } else {
-            document.getElementById('reservation-details').style.display = 'none';
-        }
-    }
-</script>
 @endsection
