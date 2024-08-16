@@ -24,15 +24,15 @@ class SendMailRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required',
-            'message' => 'required',
+            'subject' => 'required|string|max:255', // Added 'subject' validation
+            'message' => 'required|string', // Keep 'message' validation
         ];
     }
 
     public function messages()
     {
         return [
-            'name.required' => '名前を入力してください',
+            'subject.required' => '件名を入力してください。',
             'message.required' => 'メッセージを入力してください。',
         ];
     }
