@@ -43,7 +43,7 @@
 
                     <div class="button-group mt-3">
                         <button class="btn btn-primary">支払い</button>
-                        <a href="{{ route('store.dashboard') }}" class="btn btn-secondary">戻る</a>
+                        <a href="{{ route('reservation.store') }}" class="btn btn-secondary">戻る</a>
                     </div>
                 </form>
             </div>

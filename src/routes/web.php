@@ -29,23 +29,34 @@ use App\Http\Controllers\PaymentController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+// 公開ルート
 Route::get('/shop_all', [RestaurantController::class, 'index'])->name('shop_all');
-// Corrected to ReviewController
-Route::post('/reservation', [ReservationController::class, 'store'])->name('reservation.store');
-Route::get('/done', [ReservationController::class, 'done'])->name('done');
 Route::get('/favorite', [FavoriteController::class, 'index'])->name('favorite.index');
 Route::post('/favorites/toggle/{id}', [FavoriteController::class, 'toggle'])->name('favorites.toggle');
 
+// 認証関連のルート
 Route::middleware('auth')->group(function () {
+    
+    // ホームおよびマイページ関連
     Route::get('/', [LoginController::class, 'shop_all'])->name('home');
     Route::get('/mypage', [MypageController::class, 'mypage'])->name('mypage');
     Route::delete('/reservation/{id}', [MypageController::class, 'destroyReservation'])->name('reservation.destroy');
     Route::put('/reservation/{id}', [MypageController::class, 'updateReservation'])->name('reservation.update');
-    
+
+    // レストランおよびレビュー関連
     Route::get('/restaurant/{id}', [ReviewController::class, 'show'])->name('restaurant.show');
     Route::get('/review/create/{restaurantId?}', [ReviewController::class, 'create'])->name('review.create');
     Route::post('/review/store', [ReviewController::class, 'store'])->name('review.store');
 
+    // 予約関連
+    Route::post('/reservation', [ReservationController::class, 'store'])->name('reservation.store');
+
+    // 決済関連
+    Route::prefix('payment')->name('payment.')->group(function () {
+        Route::get('/create', [PaymentController::class, 'create'])->name('create');
+        Route::post('/store', [PaymentController::class, 'store'])->name('store');
+        Route::get('/done', [PaymentController::class, 'done'])->name('done');
+    });
 });
 
     //メール認証
@@ -102,10 +113,7 @@ Route::middleware('auth')->group(function () {
 
         Route::get('/store/reservations/{id}', [StoreRepresentativeController::class, 'show'])->name('store.reservation.detail');
 
-        Route::prefix('payment')->name('payment.')->group(function () {
-        Route::get('/create', [PaymentController::class, 'create'])->name('create');
-        Route::post('/store', [PaymentController::class, 'store'])->name('store');
-      });
+        
 
 
     });

@@ -35,9 +35,6 @@
                     <td>
                         <a href="{{ route('store.qr.scan') }}" class="btn btn-primary">QRコードスキャン</a>
                     </td>
-                    <td>
-                        <a href="{{ route('payment.create') }}" class="btn btn-primary">決済フォーム</a>
-                    </td>
                 </tr>
                 <tr>
                     <td>

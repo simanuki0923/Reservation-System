@@ -19,7 +19,7 @@ class ReservationController extends Controller
     }
 
     public function store(ReservationRequest $request)
-{
+  {
     $validated = $request->validated();
 
     // 予約を作成し、そのインスタンスを取得
@@ -56,13 +56,11 @@ class ReservationController extends Controller
     dispatch(new SendReservationDetails($reservation))
         ->delay(Carbon::parse($reservation->reservation_date)->setTime(9, 0));
 
-    return redirect()->route('done')->with('success', '予約が完了しました');
-}
-
-    public function done()
-    {
-        return view('done');
-    }
-
+    return response()->json([
+            'success' => true,
+            'reservation_id' => $reservation->id,
+            'redirect_url' => route('payment.create', ['reservation_id' => $reservation->id]),
+        ]);
+  }
 
 }
