@@ -15,26 +15,25 @@
         <div class="header__logo">Rese</div>
     </header>
     <main>
-         <form action="{{ url('mail') }}" method='POST'>
-            @csrf
-            <div class="form-group">
-                
-                <input type="text" name="name" value="{{ old('name') }}" placeholder="名前" class="form-control">
-                @if ($errors->has('name'))
-                <p class="bg-danger">{{ $errors->first('name') }}</p>
-                @endif
+         <form action="{{ url('mail') }}" method="POST">
+    @csrf
+    <div class="form-group">
+        <input type="text" name="subject" value="{{ old('subject') }}" placeholder="件名" class="form-control">
+        @if ($errors->has('subject'))
+        <p class="bg-danger">{{ $errors->first('subject') }}</p>
+        @endif
 
-                <input type="text" name="message" value="{{ old('message') }}" placeholder="メッセージ" class="form-control">
-                @if ($errors->has('message'))
-                <p class="bg-danger">{{ $errors->first('message') }}</p>
-                @endif
+        <textarea name="message" placeholder="メッセージ" class="form-control">{{ old('message') }}</textarea>
+        @if ($errors->has('message'))
+        <p class="bg-danger">{{ $errors->first('message') }}</p>
+        @endif
 
-                <div class="button-group">
-                    <input type="submit" value="送信" class="btn">
-                    <a href="{{ route('store.dashboard') }}" class="btn btn-secondary">戻る</a>
-                </div>
-            </div>
-        </form>
+        <div class="button-group">
+            <input type="submit" value="送信" class="btn">
+            <a href="{{ route('store.dashboard') }}" class="btn btn-secondary">戻る</a>
+        </div>
+    </div>
+</form>
 
         @if (Session::has('success'))
         <div>

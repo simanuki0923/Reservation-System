@@ -14,12 +14,12 @@ class MailController extends Controller
     }
 
     public function send(SendMailRequest $request)
-    {
-        $data = $validator->validated();
+   {
+    $data = $request->validated();
 
-        Mail::to('admin@hoge.co.jp')->send(new SendTestMail($data));
+    Mail::to('admin@hoge.co.jp')->send(new SendTestMail($data));
 
-        session()->flash('success', '送信しました！');
-        return back();
-    }
+    session()->flash('success', '送信しました！');
+    return back();
+   }
 }
