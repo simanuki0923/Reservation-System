@@ -18,10 +18,11 @@
             <div class="alert alert-success">{{ session('success') }}</div>
         @endif
 
+        <!-- 更新ボタン用のフォーム -->
         <form method="POST" action="{{ route('admin.updateManager', $manager->id) }}">
             @csrf
             @method('PUT')
-            
+
             <div class="form-group">
                 <label for="name">名前</label>
                 <input type="text" id="name" name="name" value="{{ old('name', $manager->name) }}" class="form-control" required>
@@ -40,16 +41,24 @@
                 </select>
             </div>
 
-            <div class="form-actions">
+            <!-- ボタン群を右寄せにするコンテナ -->
+            <div class="buttons-container">
+                <!-- 更新ボタン -->
                 <button type="submit" class="btn btn-primary">更新</button>
-                <form action="{{ route('admin.deleteManager', $manager->id) }}" method="POST" style="display: inline;">
-                    @csrf
-                    @method('DELETE')
-                    <button type="submit" class="btn btn-danger">削除</button>
-                </form>
-                <a href="{{ route('admin.index') }}" class="btn btn-secondary">戻る</a>
             </div>
         </form>
+        <!-- 削除ボタン用のフォーム -->
+        <div class="buttons-container">
+            <form action="{{ route('admin.deleteManager', $manager->id) }}" method="POST">
+                @csrf
+                @method('DELETE')
+                <button type="submit" class="btn btn-danger">削除</button>
+            </form>
+            <!-- 戻るボタン -->
+        <div class="buttons-container">
+            <a href="{{ route('admin.index') }}" class="btn btn-secondary">戻る</a>
+        </div>
+        </div>
     </div>
 </main>
 </body>

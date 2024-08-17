@@ -49,7 +49,7 @@
         <div class="reservation-container">
             <h3>予約</h3>
             <form id="reservation-form" action="{{ route('reservation.store') }}" method="POST">
-                @csrf
+                  @csrf
                 <input type="hidden" name="restaurant_id" value="{{ $restaurant->id }}">
                 <div class="form-group">
                     <label for="date" class="form-label">日程</label>
@@ -62,9 +62,19 @@
                     <label for="time" class="form-label">時間</label>
                     <select id="time" name="time" class="form-select" onchange="updateReservationDetails()">
                         <option value="" selected>時間を選択</option>
+                        <option value="10:00">10:00</option>
+                        <option value="11:00">11:00</option>
+                        <option value="12:00">12:00</option>
+                        <option value="13:00">13:00</option>
+                        <option value="14:00">14:00</option>
+                        <option value="15:00">15:00</option>
+                        <option value="16:00">16:00</option>
                         <option value="17:00">17:00</option>
                         <option value="18:00">18:00</option>
                         <option value="19:00">19:00</option>
+                        <option value="20:00">20:00</option>
+                        <option value="21:00">21:00</option>
+                        <option value="22:00">22:00</option>
                     </select>
                     @error('reservation_time')
                        <span class="text-danger">{{ $message }}</span>
@@ -77,6 +87,9 @@
                         <option value="1">1人</option>
                         <option value="2">2人</option>
                         <option value="3">3人</option>
+                        <option value="4">4人</option>
+                        <option value="5">5人</option>
+                        <option value="6">6人</option>
                     </select>
                     @error('number_of_people')
                        <span class="text-danger">{{ $message }}</span>
