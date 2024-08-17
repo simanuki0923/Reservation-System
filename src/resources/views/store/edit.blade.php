@@ -12,8 +12,14 @@
 <body>
 <main>
     <div class="container">
-        <h1>店舗情報の編集</h1>
-        <form action="{{ route('store.update', $store->id) }}" method="POST">
+        <h2>店舗情報の編集</h2>
+
+        @if (session('success'))
+            <div class="alert alert-success">{{ session('success') }}</div>
+        @endif
+
+        <!-- Update button form -->
+        <form method="POST" action="{{ route('store.update', $store->id) }}">
             @csrf
             @method('PUT')
             <div class="form-group">
@@ -36,15 +42,27 @@
                 <label for="image_url">画像URL</label>
                 <input type="url" name="image_url" id="image_url" class="form-control" value="{{ $store->image_url }}">
             </div>
-            <div class="form-actions">
-    <button type="submit" class="btn btn-primary">更新</button>
-    <form action="{{ route('store.destroy', $store->id) }}" method="POST">
-        @csrf
-        @method('DELETE')
-        <button type="submit" class="btn btn-danger">削除</button>
-    </form>
-    <a href="{{ route('store.dashboard') }}" class="btn btn-secondary">戻る</a>
-</div>
+            <!-- Update button -->
+            <div class="buttons-container">
+                <button type="submit" class="btn btn-primary">更新</button>
+            </div>
+        </form>
+
+        <!-- Delete button form -->
+        <div class="buttons-container">
+            <form action="{{ route('store.destroy', $store->id) }}" method="POST">
+                @csrf
+                @method('DELETE')
+                <button type="submit" class="btn btn-danger">削除</button>
+            </form>
+        </div>
+
+        <!-- Back button -->
+        <div class="buttons-container">
+            <a href="{{ route('store.dashboard') }}" class="btn btn-secondary">戻る</a>
+        </div>
+    </div>
 </main>
 </body>
 </html>
+
