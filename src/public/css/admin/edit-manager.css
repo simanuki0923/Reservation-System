@@ -4,14 +4,14 @@
     padding: 20px;
 }
 
-/* 見出しのスタイル */
+/* Heading styling */
 h2 {
     margin-bottom: 20px;
     font-size: 1.5rem;
     color: #333;
 }
 
-/* 成功メッセージのスタイル */
+/* Success message styling */
 .alert-success {
     margin-bottom: 20px;
     padding: 15px;
@@ -21,12 +21,12 @@ h2 {
     border-radius: 5px;
 }
 
-/* フォームグループのスタイル */
+/* Form group styling */
 .form-group {
     margin-bottom: 15px;
 }
 
-/* ラベルのスタイル */
+/* Label styling */
 .form-group label {
     display: block;
     font-weight: bold;
@@ -34,7 +34,7 @@ h2 {
     color: #333;
 }
 
-/* テキスト入力、パスワード入力、セレクトボックスのスタイル */
+/* Form control styling */
 .form-control {
     width: 100%;
     padding: 10px;
@@ -43,14 +43,19 @@ h2 {
     box-sizing: border-box;
 }
 
-/* フォームアクションボタンのスタイル */
-.form-actions {
+/* Button container styling */
+.buttons-container {
+    display: flex;
+    flex-direction: column;
+    /* Stack buttons vertically */
+    align-items: flex-end;
+    /* Align buttons to the right */
+    gap: 10px;
+    /* Space between buttons */
     margin-top: 20px;
-    text-align: right;
-    /* ボタンを右揃えにする */
 }
 
-/* 更新ボタン、削除ボタン、戻るボタンの共通スタイル */
+/* Button styling */
 .btn {
     padding: 10px 20px;
     font-size: 1rem;
@@ -59,29 +64,52 @@ h2 {
     border-radius: 5px;
     border: none;
     cursor: pointer;
-    margin-left: 10px;
-    /* ボタン間にスペースを追加 */
+    display: inline-block;
 }
 
-/* 更新ボタンのスタイル */
+/* Primary button styling */
 .btn-primary {
     background-color: #007bff;
     color: #fff;
 }
 
-/* 削除ボタンのスタイル */
+/* Danger button styling */
 .btn-danger {
     background-color: #dc3545;
     color: #fff;
 }
 
-/* 戻るボタンのスタイル */
+/* Secondary button styling */
 .btn-secondary {
     background-color: #6c757d;
     color: #fff;
 }
 
-/* 削除ボタンと戻るボタンを同じ行に表示 */
-.form-actions form {
-    display: inline;
+@media (max-width: 768px) {
+    .container {
+        padding: 10px;
+    }
+
+    h2 {
+        font-size: 1.25rem;
+    }
+
+    .alert-success {
+        font-size: 0.875rem;
+        padding: 10px;
+    }
+
+    .form-control {
+        padding: 8px;
+    }
+
+    .buttons-container {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .btn {
+        width: 100%;
+        box-sizing: border-box;
+    }
 }

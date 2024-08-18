@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Http\Requests\UpdateReservationRequest;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Favorite;
 use App\Models\Reservation;
@@ -60,7 +60,7 @@ class MypageController extends Controller
         }
     }
     
-    public function updateReservation(Request $request, $id)
+    public function updateReservation(UpdateReservationRequest $request, $id)
     {
         
         $user = Auth::user();
@@ -69,12 +69,6 @@ class MypageController extends Controller
         if ($reservation->user_id != $user->id) {
             return redirect()->route('mypage')->with('error', '予約を更新できません。');
         }
-
-        $request->validate([
-            'reservation_date' => 'required|date',
-            'reservation_time' => 'required|date_format:H:i',
-            'number_of_people' => 'required|integer|min:1',
-        ]);
 
         $reservation->update([
             'reservation_date' => $request->input('reservation_date'),

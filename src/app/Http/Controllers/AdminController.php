@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\AdminRequest;
+use App\Http\Requests\StoreRequest;
 use App\Models\Admin;
 use Illuminate\Support\Facades\Hash;
 
@@ -20,25 +22,20 @@ class AdminController extends Controller
         return view('admin.index', compact('managers'));
     }
 
+    public function logout(Request $request)
+    {
+        Auth::guard('admin')->logout();
+
+        return redirect()->route('admin.login');
+    }
+
     public function createManager()
     {
         return view('admin.create-manager');
     }
 
-    public function storeManager(Request $request)
+    public function storeManager(AdminRequest $request)
     {
-        $request->validate([
-            'name' => 'required|string|max:255|unique:admins,name',
-            'password' => 'required|string|min:5',
-            'role' => 'required|string|max:255',
-        ], [
-            'name.required' => '名前は必須です。',
-            'name.unique' => 'この名前は既に存在します。',
-            'password.required' => 'パスワードは必須です。',
-            'password.min' => 'パスワードは最低5文字である必要があります。',
-            'role.required' => '役割は必須です。',
-        ]);
-
         Admin::create([
             'name' => $request->name,
             'password' => Hash::make($request->password),
@@ -53,18 +50,8 @@ class AdminController extends Controller
         return view('admin.create-store');
     }
 
-    public function storeStore(Request $request)
+    public function storeStore(StoreRequest $request)
     {
-        $request->validate([
-            'name' => 'required|string|max:255',
-            'address' => 'required|string|max:255',
-            'phone_number' => 'required|string|max:15',
-        ], [
-            'name.required' => '店舗名は必須です。',
-            'address.required' => '住所は必須です。',
-            'phone_number.required' => '電話番号は必須です。',
-        ]);
-
         Store::create([
             'name' => $request->name,
             'address' => $request->address,
@@ -80,18 +67,8 @@ class AdminController extends Controller
         return view('admin.edit-store', compact('store'));
     }
 
-    public function updateStore(Request $request, $id)
+    public function updateStore(StoreRequest $request, $id)
     {
-        $request->validate([
-            'name' => 'required|string|max:255',
-            'address' => 'required|string|max:255',
-            'phone_number' => 'required|string|max:15',
-        ], [
-            'name.required' => '店舗名は必須です。',
-            'address.required' => '住所は必須です。',
-            'phone_number.required' => '電話番号は必須です。',
-        ]);
-
         $store = Store::findOrFail($id);
         $store->name = $request->name;
         $store->address = $request->address;
@@ -107,19 +84,8 @@ class AdminController extends Controller
         return view('admin.edit-manager', compact('manager'));
     }
 
-    public function updateManager(Request $request, $id)
+    public function updateManager(AdminRequest $request, $id)
     {
-        $request->validate([
-            'name' => 'required|string|max:255|unique:admins,name,' . $id,
-            'password' => 'nullable|string|min:5',
-            'role' => 'required|string|max:255',
-        ], [
-            'name.required' => '名前は必須です。',
-            'name.unique' => 'この名前は既に存在します。',
-            'password.min' => 'パスワードは最低5文字である必要があります。',
-            'role.required' => '役割は必須です。',
-        ]);
-
         $manager = Admin::findOrFail($id);
         $manager->name = $request->name;
         $manager->role = $request->role;

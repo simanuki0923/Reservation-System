@@ -1,79 +1,115 @@
 .container {
     max-width: 800px;
     margin: 0 auto;
+    padding: 20px;
 }
 
-/* フォームグループのスタイル */
+/* Heading styling */
+h2 {
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+    color: #333;
+}
+
+/* Success message styling */
+.alert-success {
+    margin-bottom: 20px;
+    padding: 15px;
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+    border-radius: 5px;
+}
+
+/* Form group styling */
 .form-group {
     margin-bottom: 15px;
 }
 
-/* 入力フィールドとテキストエリアのスタイル */
+/* Label styling */
+.form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+/* Form control styling */
 .form-control {
     width: 100%;
     padding: 10px;
     border: 1px solid #ced4da;
-    border-radius: 4px;
-    font-size: 1em;
+    border-radius: 5px;
+    box-sizing: border-box;
 }
 
-/* ボタンを右側に寄せて横並びにするためのスタイル */
-.form-actions {
+/* Button container styling */
+.buttons-container {
     display: flex;
-    justify-content: flex-end;
-    /* ボタンを右寄せ */
+    flex-direction: column;
+    /* Stack buttons vertically */
+    align-items: flex-end;
+    /* Align buttons to the right */
     gap: 10px;
-    /* ボタン間のスペース */
+    /* Space between buttons */
     margin-top: 20px;
-    /* 上部の余白 */
 }
 
-/* ボタンの基本スタイル */
+/* Button styling */
 .btn {
     padding: 10px 20px;
-    font-size: 1em;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
+    font-size: 1rem;
+    font-weight: bold;
     text-align: center;
-    /* テキストを中央寄せ */
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    display: inline-block;
 }
 
-/* 更新ボタンのスタイル */
+/* Primary button styling */
 .btn-primary {
     background-color: #007bff;
     color: #fff;
 }
 
-.btn-primary:hover {
-    background-color: #0056b3;
-}
-
-/* 削除ボタンのスタイル */
+/* Danger button styling */
 .btn-danger {
     background-color: #dc3545;
     color: #fff;
 }
 
-.btn-danger:hover {
-    background-color: #c82333;
-}
-
-/* 戻るボタンのスタイル */
+/* Secondary button styling */
 .btn-secondary {
     background-color: #6c757d;
     color: #fff;
 }
 
-.btn-secondary:hover {
-    background-color: #5a6268;
-}
+@media (max-width: 768px) {
+    .container {
+        padding: 10px;
+    }
 
-/* テキストエリアのスタイル */
-textarea.form-control {
-    height: 150px;
-    /* 高さを設定 */
-    resize: vertical;
-    /* 縦にリサイズ可能 */
+    h2 {
+        font-size: 1.25rem;
+    }
+
+    .alert-success {
+        font-size: 0.875rem;
+        padding: 10px;
+    }
+
+    .form-control {
+        padding: 8px;
+    }
+
+    .buttons-container {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .btn {
+        width: 100%;
+        box-sizing: border-box;
+    }
 }

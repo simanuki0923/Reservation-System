@@ -1,0 +1,165 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    box-sizing: border-box;
+}
+
+header {
+    color: #007bff;
+    padding: 15px;
+    text-align: left;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+.header__logo {
+    font-size: 1.8em;
+    font-weight: bold;
+}
+
+main {
+    margin-top: 100px;
+    /* ヘッダーの高さに合わせた余白 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh - 100px);
+    /* ヘッダーを除いた画面高さ */
+    padding: 20px;
+}
+
+.form-group {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 40px;
+    /* パディングを増やす */
+    width: 100%;
+    max-width: 600px;
+    /* 最大幅を広げる */
+    box-sizing: border-box;
+}
+
+.form-group p {
+    margin: 0 0 15px;
+    /* マージンを調整 */
+    font-size: 1.1em;
+    /* フォントサイズを少し大きく */
+    font-weight: bold;
+    text-align: left;
+}
+
+.form-control {
+    width: 100%;
+    padding: 15px;
+    /* パディングを増やす */
+    margin-bottom: 20px;
+    /* マージンを調整 */
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.button-group {
+    display: flex;
+    justify-content: flex-end;
+    /* 右側寄せ */
+    gap: 10px;
+    /* ボタン間の間隔 */
+}
+
+.btn {
+    display: inline-block;
+    padding: 15px 30px;
+    /* パディングを増やす */
+    margin: 0;
+    /* マージンをリセット */
+    border: none;
+    border-radius: 4px;
+    background-color: #007bff;
+    color: #fff;
+    font-size: 1.1em;
+    /* フォントサイズを少し大きく */
+    cursor: pointer;
+    text-decoration: none;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.btn:hover {
+    background-color: #0056b3;
+}
+
+.btn-secondary {
+    background-color: #6c757d;
+}
+
+.btn-secondary:hover {
+    background-color: #5a6268;
+}
+
+.bg-danger {
+    color: #fff;
+    background-color: #dc3545;
+    padding: 10px;
+    /* パディングを増やす */
+    border-radius: 4px;
+    margin-top: 10px;
+    /* マージンを調整 */
+    text-align: center;
+}
+
+.bg-warning {
+    color: #856404;
+    background-color: #fff3cd;
+    padding: 15px;
+    /* パディングを増やす */
+    border-radius: 4px;
+    margin-top: 15px;
+    /* マージンを調整 */
+    text-align: center;
+}
+
+/* タブレット・スマートフォン用のレスポンシブデザイン */
+@media (max-width: 768px) {
+    .header__logo {
+        font-size: 1.5em;
+        /* ロゴのフォントサイズを調整 */
+    }
+
+    main {
+        height: auto;
+        /* 高さを自動調整 */
+        padding: 10px;
+    }
+
+    .form-group {
+        padding: 20px;
+        /* パディングを減らす */
+        max-width: 100%;
+        /* 最大幅を100%にする */
+    }
+
+    .form-control {
+        padding: 12px;
+        /* パディングを減らす */
+    }
+
+    .btn {
+        padding: 12px 20px;
+        /* ボタンのパディングを調整 */
+        font-size: 1em;
+        /* フォントサイズを調整 */
+    }
+
+    .bg-danger,
+    .bg-warning {
+        padding: 10px;
+        /* パディングを調整 */
+    }
+}

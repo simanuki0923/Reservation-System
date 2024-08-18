@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Http\Requests\StoreReviewRequest;
 use App\Models\Review;
 use App\Models\Restaurant;
 use App\Models\Reservation;
@@ -16,15 +16,8 @@ class ReviewController extends Controller
         return view('review', compact('restaurants', 'reservations'));
     }
 
-    public function store(Request $request)
+    public function store(StoreReviewRequest $request)
 {
-    $request->validate([
-        'restaurant_id' => 'required|exists:restaurants,id',
-        'reservation_id' => 'required|exists:reservations,id',
-        'rating' => 'required|integer|min:1|max:5',
-        'comment' => 'nullable|string|max:255',
-    ]);
-
     Review::create([
         'user_id' => auth()->id(),
         'restaurant_id' => $request->restaurant_id,
@@ -33,6 +26,15 @@ class ReviewController extends Controller
         'comment' => $request->comment,
     ]);
 
-    return redirect()->route('review.create')->with('success', 'レビューが投稿されました。');
+    return redirect()->route('restaurant.show', ['id' => $request->restaurant_id])->with('success', 'レビューが投稿されました。');
 }
+
+public function show($id)
+{
+    $restaurant = Restaurant::findOrFail($id);
+    $reviews = Review::where('restaurant_id', $id)->get();
+
+    return view('detail', compact('restaurant', 'reviews'));
+}
+
 }

@@ -1,10 +1,15 @@
-@extends('layouts.app')
-
-@section('css')
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <title>Rese</title>
+    <link rel="stylesheet" href="{{ asset('css/sanitize.css') }}">
     <link rel="stylesheet" href="{{ asset('css/admin/reservations.css') }}">
-@endsection
-
-@section('content')
+</head>
+<body>
 <main>
     <div class="container">
         <h1>予約情報の確認</h1>
@@ -20,6 +25,9 @@
                             <th>予約日</th>
                             <th>予約時間</th>
                             <th>人数</th>
+                            <th>予約者名</th>
+                            <th>予約者メール</th>
+                            <th>詳細</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -36,6 +44,23 @@
                                 <td>{{ $reservation->reservation_date }}</td>
                                 <td>{{ $reservation->reservation_time }}</td>
                                 <td>{{ $reservation->number_of_people }}</td>
+                                <td>
+                                    @if($reservation->user)
+                                        {{ $reservation->user->name }}
+                                    @else
+                                        予約者情報がありません
+                                    @endif
+                                </td>
+                                <td>
+                                    @if($reservation->user)
+                                        {{ $reservation->user->email }}
+                                    @else
+                                        予約者情報がありません
+                                    @endif
+                                </td>
+                                <td>
+                                    <a href="{{ route('store.reservation.detail', $reservation->id) }}" class="btn btn-info">詳細</a>
+                                </td>
                             </tr>
                         @endforeach
                     </tbody>
@@ -47,4 +72,5 @@
         @endif
     </div>
 </main>
-@endsection
+</body>
+</html>

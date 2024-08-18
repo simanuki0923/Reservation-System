@@ -16,16 +16,17 @@
                 @foreach ($reservations as $reservation)
                     <div class="reservation-card">
                         <div class="reservation-details">
-                            <form action="{{ route('reservation.destroy', $reservation->id) }}" method="POST" class="mt-2">
-                            @csrf
-                            @method('DELETE')
-                            <button type="submit" class="reservation-value">
-                            <p>☒</p></button> 
+                            <form action="{{ route('reservation.destroy', $reservation->id) }}" method="POST" class="reservation-delete-form">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-danger">
+                                    <p>☒</p>
+                                </button>
+                            </form>
                             <h3>予約</h3>
-                        </form>
-                            <p>Shop <span class="reservation-value">{{ $reservation->restaurant->name }}</span></p>
-                            <p>Date <span class="reservation-value">{{ $reservation->reservation_date->format('Y-m-d') }}</span></p>
-                            <p>Time <span class="reservation-value">{{ $reservation->reservation_time->format('H:i') }}</span></p>
+                            <p>Shop <span class="reservation-value">{{ $reservation->restaurant ? $reservation->restaurant->name : 'Unknown' }}</span></p>
+                            <p>Date <span class="reservation-value">{{ $reservation->reservation_date ? \Carbon\Carbon::parse($reservation->reservation_date)->format('Y-m-d') : 'N/A' }}</span></p>
+                            <p>Time <span class="reservation-value">{{ $reservation->reservation_time ? \Carbon\Carbon::parse($reservation->reservation_time)->format('H:i') : 'N/A' }}</span></p>
                             <p>Number <span class="reservation-value">{{ $reservation->number_of_people }}人</span></p>
                         </div>
                         <div class="modal fade" id="editReservationModal{{ $reservation->id }}" tabindex="-1" aria-labelledby="editReservationModalLabel{{ $reservation->id }}" aria-hidden="true">
@@ -33,31 +34,29 @@
                                 <div class="modal-content">
                                     <div class="modal-header">
                                         <h5 class="modal-title" id="editReservationModalLabel{{ $reservation->id }}">予約変更</h5>
-                                        
                                     </div>
                                     <div class="modal-body">
-                                    <form action="{{ route('reservation.update', $reservation->id) }}" method="POST">
-                                       @csrf
-                                       @method('PUT')
-                                      <div class="form-group mb-3">
-                                         <label for="reservation_date" class="form-label"></label>
-                                         <p>date<input type="date" class="form-control" id="reservation_date" name="reservation_date" value="{{ $reservation->reservation_date->format('Y-m-d') }}" required></p>
-                                     </div>
-                                     <div class="form-group mb-3">
-                                        <label for="reservation_time" class="form-label"></label>
-                                        <p>Time<input type="time" class="form-control" id="reservation_time" name="reservation_time" value="{{ $reservation->reservation_time->format('H:i') }}" required></p>
-                                     </div>
-                                     <div class="form-group mb-3">
-                                       <label for="number_of_people" class="form-label"></label>
-                                       <p>Number<input type="number" class="form-control" id="number_of_people" name="number_of_people" value="{{ $reservation->number_of_people }}" required></p>
+                                        <form action="{{ route('reservation.update', $reservation->id) }}" method="POST">
+                                            @csrf
+                                            @method('PUT')
+                                            <div class="form-group mb-3">
+                                                <label for="reservation_date" class="form-label">Date</label>
+                                                <input type="date" class="form-control" id="reservation_date" name="reservation_date" value="{{ $reservation->reservation_date ? \Carbon\Carbon::parse($reservation->reservation_date)->format('Y-m-d') : '' }}" required>
+                                            </div>
+                                            <div class="form-group mb-3">
+                                                <label for="reservation_time" class="form-label">Time</label>
+                                                <input type="time" class="form-control" id="reservation_time" name="reservation_time" value="{{ $reservation->reservation_time ? \Carbon\Carbon::parse($reservation->reservation_time)->format('H:i') : '' }}" required>
+                                            </div>
+                                            <div class="form-group mb-3">
+                                                <label for="number_of_people" class="form-label">Number</label>
+                                                <input type="number" class="form-control" id="number_of_people" name="number_of_people" value="{{ $reservation->number_of_people }}"placeholder="Password"  required>
+                                            </div>
+                                            <button type="submit" class="btn btn-primary">変更</button>
+                                        </form>
                                     </div>
-                                    <button type="submit" class="btn btn-primary">変更</button>
-                                    </form>
-                                  </div>
                                 </div>
                             </div>
                         </div>
-
                     </div>
                 @endforeach
             @endif
@@ -78,17 +77,16 @@
                                 </div>
                                 <div class="btn-group">
                                     <a href="{{ route('restaurant.show', $favorite->restaurant->id) }}" class="btn btn-primary">詳しくみる</a>
-                                    
                                     <form action="{{ route('favorites.toggle', $favorite->restaurant->id) }}" method="POST" class="d-inline">
                                        @csrf
                                        <button type="submit" class="btn btn-warning favorite-button">
-                                    @if(auth()->check() && auth()->user()->favorites()->where('restaurant_id', $favorite->restaurant->id)->exists())
-                                        <img class="iconheart_red" src="{{ asset('img/heart_red.png') }}" alt="お気に入り削除">
-                                    @else
-                                        <img class="iconheart_gray" src="{{ asset('img/heart_gray.png') }}" alt="お気に入り">
-                                    @endif
-                                   </button>
-                                 </form>  
+                                            @if(auth()->check() && auth()->user()->favorites()->where('restaurant_id', $favorite->restaurant->id)->exists())
+                                                <img class="iconheart_red" src="{{ asset('img/heart_red.png') }}" alt="お気に入り削除">
+                                            @else
+                                                <img class="iconheart_gray" src="{{ asset('img/heart_gray.png') }}" alt="お気に入り">
+                                            @endif
+                                       </button>
+                                    </form>
                                 </div>
                             </div>
                         </div>

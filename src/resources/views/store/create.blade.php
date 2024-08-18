@@ -1,10 +1,15 @@
-@extends('layouts.app')
-
-@section('css')
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <title>Rese</title>
+    <link rel="stylesheet" href="{{ asset('css/sanitize.css') }}">
     <link rel="stylesheet" href="{{ asset('css/admin/create.css') }}">
-@endsection
-
-@section('content')
+</head>
+<body>
 <main>
     <div class="container">
         <h1>店舗情報の作成</h1>
@@ -31,10 +36,11 @@
                 <input type="url" name="image_url" id="image_url" class="form-control">
             </div>
             <div class="form-submit">
-                <a href="{{ route('store.dashboard') }}" class="btn btn-secondary">戻る</a>
+                <a href="{{ route('store.dashboard') }}" class="btn btn-secondary center-text">戻る</a>
                 <button type="submit" class="btn btn-primary">作成</button>
             </div>
         </form>
     </div>
 </main>
-@endsection
+</body>
+</html>

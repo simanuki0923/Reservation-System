@@ -1,40 +1,83 @@
-@extends('layouts.app')
-
-@section('css')
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <title>Rese</title>
+    <link rel="stylesheet" href="{{ asset('css/sanitize.css') }}">
     <link rel="stylesheet" href="{{ asset('css/admin/dashboard.css') }}">
-@endsection
-
-@section('content')
+    @yield('css')
+</head>
+<body>
 <main>
     <div class="container">
         <h1>管理者画面</h1>
-        <a href="{{ route('store.create') }}" class="btn btn-primary">店舗情報の作成</a>
-        <a href="{{ route('store.reservations') }}" class="btn btn-primary">予約情報の確認</a>
-        <a href="{{ route('admin.login') }}" class="btn btn-secondary">ログアウト</a>
+        
+        <table class="table">
+            <tbody>
+                <tr>
+                    <td>
+                        <a href="{{ route('store.create') }}" class="btn btn-primary">店舗情報の作成</a>
+                    </td>
+                    <td>
+                        <a href="{{ route('store.reservations') }}" class="btn btn-primary">予約情報の確認</a>
+                    </td>
+                    <td>
+                        <a href="{{ route('store.upload') }}" class="btn btn-primary">画像アップロード</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <a href="{{ route('mail.index') }}" class="btn btn-primary">メール送信</a>
+                    </td>
+                    <td>
+                        <a href="{{ route('store.qr.scan') }}" class="btn btn-primary">QRコードスキャン</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <a href="{{ route('admin.logout') }}" class="btn btn-secondary"
+                           onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                           ログアウト
+                        </a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- ログアウトフォーム -->
+        <form id="logout-form" action="{{ route('admin.logout') }}" method="POST" style="display: none;">
+            @csrf
+        </form>
+
+        <!-- 店舗情報が存在するかどうかのチェック -->
         @if($stores->isEmpty())
             <p>店舗情報はありません。</p>
         @else
         <table class="table">
-                <thead>
+            <thead>
+                <tr>
+                    <th>店舗名</th>
+                    <th>住所</th>
+                    <th>操作</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach ($stores as $store)
                     <tr>
-                        <th>店舗名</th>
-                        <th>住所</th>
-                        <th>操作</th>
+                        <td>{{ $store->name }}</td>
+                        <td>{{ $store->address }}</td>
+                        <td>
+                            <a href="{{ route('store.edit', $store->id) }}" class="btn btn-secondary">編集</a>
+                        </td>
                     </tr>
-                </thead>
-                <tbody>
-                    @foreach ($stores as $store)
-                        <tr>
-                            <td>{{ $store->name }}</td>
-                            <td>{{ $store->address }}</td>
-                            <td>
-                                <a href="{{ route('store.edit', $store->id) }}" class="btn btn-secondary">編集</a>
-                            </td>
-                        </tr>
-                    @endforeach
-                </tbody>
-            </table>
+                @endforeach
+            </tbody>
+        </table>
         @endif
     </div>
 </main>
-@endsection
+</body>
+</html>

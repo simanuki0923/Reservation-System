@@ -15,7 +15,13 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        // $schedule->command('inspire')->hourly();
+        $schedule->call(function () {
+        $reservations = Reservation::whereDate('reservation_date', Carbon::today())->get();
+
+        foreach ($reservations as $reservation) {
+            SendReservationDetails::dispatch($reservation);
+        }
+       })->dailyAt('09:00'); // 毎日午前9時に実行
     }
 
     /**

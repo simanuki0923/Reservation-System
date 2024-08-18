@@ -21,8 +21,10 @@ class RegisterController extends Controller
 
         $user = $this->create($request->all());
 
-        auth()->login($user);
+        // メール認証通知を送信
+        $user->sendEmailVerificationNotification();
 
+        // メール認証後にログインするため、ユーザーにはメール認証後にログインするように促す
         return redirect()->route('thanks');
     }
 

@@ -1,10 +1,15 @@
-@extends('layouts.app')
-
-@section('css')
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <title>Rese</title>
+    <link rel="stylesheet" href="{{ asset('css/sanitize.css') }}">
     <link rel="stylesheet" href="{{ asset('css/admin/edit-manager.css') }}">
-@endsection
-
-@section('content')
+</head>
+<body>
 <main>
     <div class="container">
         <h2>店舗代表者情報編集</h2>
@@ -13,10 +18,11 @@
             <div class="alert alert-success">{{ session('success') }}</div>
         @endif
 
+        <!-- 更新ボタン用のフォーム -->
         <form method="POST" action="{{ route('admin.updateManager', $manager->id) }}">
             @csrf
             @method('PUT')
-            
+
             <div class="form-group">
                 <label for="name">名前</label>
                 <input type="text" id="name" name="name" value="{{ old('name', $manager->name) }}" class="form-control" required>
@@ -35,16 +41,25 @@
                 </select>
             </div>
 
-            <div class="form-actions">
+            <!-- ボタン群を右寄せにするコンテナ -->
+            <div class="buttons-container">
+                <!-- 更新ボタン -->
                 <button type="submit" class="btn btn-primary">更新</button>
-                <form action="{{ route('admin.deleteManager', $manager->id) }}" method="POST" style="display: inline;">
-                    @csrf
-                    @method('DELETE')
-                    <button type="submit" class="btn btn-danger">削除</button>
-                </form>
-                <a href="{{ route('admin.index') }}" class="btn btn-secondary">戻る</a>
             </div>
         </form>
+        <!-- 削除ボタン用のフォーム -->
+        <div class="buttons-container">
+            <form action="{{ route('admin.deleteManager', $manager->id) }}" method="POST">
+                @csrf
+                @method('DELETE')
+                <button type="submit" class="btn btn-danger">削除</button>
+            </form>
+            <!-- 戻るボタン -->
+        <div class="buttons-container">
+            <a href="{{ route('admin.index') }}" class="btn btn-secondary">戻る</a>
+        </div>
+        </div>
     </div>
 </main>
-@endsection
+</body>
+</html>

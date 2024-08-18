@@ -63,7 +63,6 @@
     overflow: hidden;
     box-shadow: 0 4px 15px rgba(0, 0, 0, .2);
     margin: 5px;
-    
 }
 
 .card__imgframe {
@@ -77,7 +76,6 @@
     padding: 20px 18px;
     background: #fff;
     box-sizing: border-box;
-
 }
 
 .card__textbox>*+* {
@@ -127,8 +125,6 @@
     background-color: transparent;
     outline: none;
     box-shadow: none;
-
-    
 }
 
 .iconheart_red,
@@ -140,146 +136,66 @@
     border: none;
 }
 
-@media screen and (max-width: 768px) {
-.container {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: flex-end;
-        margin: 0 auto;
+/* タブレット・スマートフォン用のレスポンシブデザイン */
+@media (max-width: 768px) {
+    .container {
+        justify-content: center;
+        /* Center content horizontally */
     }
 
     .row {
-        display: flex;
-        flex-wrap: wrap;
         justify-content: center;
-        width: 100%;
-        margin: 0 auto;
+        /* Center content horizontally */
     }
 
     .search-bar {
-        margin-bottom: 30px;
-        padding: 20px;
-        background-color: #f8f9fa;
-        border-radius: 8px;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        display: flex;
-        justify-content: flex-end;
+        flex-direction: row;
+        /* Align items horizontally */
+        justify-content: flex-start;
+        /* Align items to the start */
+        padding: 10px;
+        /* Adjust padding for smaller screens */
     }
 
     .search-group {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 15px;
-        align-items: center;
+        flex-direction: row;
+        /* Align items horizontally */
+        width: 100%;
+        /* Ensure the search group takes full width */
+        gap: 10px;
+        /* Adjust gap between items */
     }
 
     .search-group .form-control {
         flex: 1;
-        min-width: 150px;
-        padding: 10px;
-        border: 1px solid #ced4da;
-        border-radius: 4px;
-        transition: border-color 0.3s;
+        min-width: 120px;
+        /* Adjust min-width for smaller screens */
     }
 
     .search-group .btn-primary {
-        flex-grow: 0;
-        margin-left: 2px;
-        background-color: #f8f9fa;
-        color: #fff;
-        border: 1px solid #ced4da;
-        padding: 8px 20px;
-        text-align: center;
-        font-size: 1rem;
-        border-radius: 4px;
-        text-decoration: none;
-        transition: background-color 0.3s ease;
-        display: flex;
-        align-items: center;
-        justify-content: center;
+        margin-left: 0;
+        /* Remove margin for better spacing */
     }
 
     .card {
-        width: 250px;
-        height: auto;
-        border-radius: 8px;
-        overflow: hidden;
-        box-shadow: 0 4px 15px rgba(0, 0, 0, .2);
-        margin: 5px;
-
-    }
-
-    .card__imgframe {
         width: 100%;
-        height: auto;
+        /* Make cards responsive */
+        max-width: 300px;
+        /* Limit max-width for cards */
     }
 
     .card__textbox {
-        width: 100%;
-        height: auto;
-        padding: 20px 18px;
-        background: #fff;
-        box-sizing: border-box;
-
-    }
-
-    .card__textbox>*+* {
-        margin-top: 10px;
-    }
-
-    .card__titletext {
-        font-size: 20px;
-        font-weight: bold;
-        line-height: 125%;
-    }
-
-    .card__overviewtext {
-        font-size: 12px;
-        line-height: 150%;
-    }
-
-    .btn-group {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
+        padding: 15px;
+        /* Adjust padding for smaller screens */
     }
 
     .btn-primary {
-        flex-grow: 1;
-        margin-right: 10px;
-        background-color: rgba(0, 123, 255, 0.8);
-        border: none;
-        padding: 10px 20px;
-        color: white;
-        text-align: center;
-        font-size: 1rem;
-        border-radius: 5px;
-        text-decoration: none;
-        transition: background-color 0.3s ease;
+        font-size: 0.9rem;
+        /* Adjust font size for smaller screens */
     }
 
     .favorite-button {
-        border: none;
-        padding: 10px 20px;
-        color: white;
-        text-align: center;
-        font-size: 1rem;
-        border-radius: 5px;
-        text-decoration: none;
-        transition: background-color 0.3s ease;
-        background-color: transparent;
-        outline: none;
-        box-shadow: none;
-
-
-    }
-
-    .iconheart_red,
-    .iconheart_gray {
-        width: 30px;
-        height: 30px;
-        object-fit: contain;
-        background-color: #fff;
-        border: none;
+        font-size: 0.9rem;
+        /* Adjust font size for smaller screens */
     }
 }
