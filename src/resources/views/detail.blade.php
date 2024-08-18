@@ -111,5 +111,4 @@
 
 <!-- 外部JavaScriptファイルの読み込み -->
 <script src="{{ asset('js/reservation.js') }}"></script>
-
 @endsection
