@@ -40,24 +40,24 @@
 
  ## 環境構築
  ### コマンドライン上
- '''
+ ```
  $ git clone https://github.com/simanuki0923/Reservation-System.git
- '''
+ ```
 
- '''php
+ ```php
  $ docker compose up -d --build
  $ docker compose exec php bash
- '''
+ ```
 
  ### PHPコンテナ内
- '''php
+ ```php
  $ composer install
- '''
+ ```
 
  ### src上
- '''php
- $ cp .env.local .env
- '''
+ ```php
+ $ cp .env.production .env
+ ```
 
  ### PHPコンテナ内
 ```php
@@ -80,5 +80,3 @@ $ sudo chmod -R 775 bootstrap/cache
 
 ※パスワードは全て"admin"でログインできます。
 
-
- ## 備考欄
