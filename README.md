@@ -39,5 +39,46 @@
  ![alt text](img/ER図.png)
 
  ## 環境構築
+ ### コマンドライン上
+ '''
+ $ git clone https://github.com/simanuki0923/Reservation-System.git
+ '''
 
- ##　備考欄
+ '''php
+ $ docker compose up -d --build
+ $ docker compose exec php bash
+ '''
+
+ ### PHPコンテナ内
+ '''php
+ $ composer install
+ '''
+
+ ### src上
+ '''php
+ $ cp .env.local .env
+ '''
+
+ ### PHPコンテナ内
+```php
+$ php artisan key:generate
+$ php artisan migrate
+$ php artisan db:seed
+```
+
+### src上
+```php
+$ sudo chmod -R 775 storage
+$ sudo chmod -R 775 bootstrap/cache
+```
+
+## ダミーデータの説明
+### ユーザー一覧
+1. 管理者　　　name: admin01
+2. 店舗代表者　name: admin02　
+3. ユーザー　　name: admin03 
+
+※パスワードは全て"admin"でログインできます。
+
+
+ ## 備考欄
