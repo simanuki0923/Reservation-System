@@ -29,7 +29,7 @@
  管理機能実装　ストレージ機能　メール認証　お知らせメール機能
  予約情報のリマインダーメール機能　
  
- ##　仕様技術
+ ## 仕様技術
  docker、Laravel8.x、PHP7.3、laravel-fortify、simplesoftwareio-simple-qrcode4.2、stripe15.5、guzzlehttp7.0
  
  ## テーブル設計
