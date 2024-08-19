@@ -56,7 +56,7 @@
 
  ### src上
  ```php
- $ cp .env.local .env
+ $ cp .env.production .env
  ```
 
  ### PHPコンテナ内
