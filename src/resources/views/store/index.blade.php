@@ -30,8 +30,13 @@
             <div class="image-gallery">
                 @foreach ($images as $image)
                     <div class="image-card">
-                        <img src="{{ asset('storage/images/' . $image->path) }}" alt="image">
+                        <img src="{{ asset('storage/images/' . $image->path) }}" alt="image">  
                     </div>
+                    <form action="{{ route('store.image.destroy', $image->id) }}" method="POST" class="delete-form">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="btn btn-secondary">☒</button>
+                        </form>
                 @endforeach
             </div>
         @endif
