@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
 use App\Http\Requests\StoreStoreRequest;
 use App\Http\Requests\UpdateStoreRequest;
@@ -113,6 +114,23 @@ class StoreRepresentativeController extends Controller
 
         return redirect()->route('store.upload')->with('success', '画像がアップロードされました。');
     }
+
+    public function destroyImage($id)
+{
+    $image = Image::find($id);
+
+    if ($image) {
+        // Delete the image file from storage
+        Storage::delete('public/images/' . $image->path);
+        
+        // Delete the image record from the database
+        $image->delete();
+
+        return redirect()->route('store.upload')->with('success', '画像が削除されました。');
+    }
+
+    return redirect()->route('store.upload')->with('error', '画像が見つかりませんでした。');
+}
 
     public function qrScan()
     {
