@@ -19,7 +19,7 @@
  学習した内容のアウトプットや自身でも検索能力向上も含めて作成しました。
 
  ## URL
- http://54.199.123.15
+ http://52.196.201.231
  
  ## 機能一覧　
  ログイン機能　会員登録　ユーザー情報取得　ユーザー飲食店お気に入り一覧取得
@@ -45,6 +45,7 @@
  ```
 
  ```php
+ $ cd Reservation-System
  $ docker compose up -d --build
  $ docker compose exec php bash
  ```
@@ -79,4 +80,5 @@ $ sudo chmod -R 775 bootstrap/cache
 3. ユーザー　　name: admin03 
 
 ※パスワードは全て"admin"でログインできます。
+
 
