@@ -104,6 +104,7 @@ Route::middleware('auth')->group(function () {
 
         Route::get('/store/upload', [StoreRepresentativeController::class, 'uploadForm'])->name('store.upload');
         Route::post('/store/upload', [StoreRepresentativeController::class, 'upload'])->name('store.upload.post');
+        Route::delete('/store/image/{id}', [StoreRepresentativeController::class, 'destroyImage'])->name('store.image.destroy');
 
         Route::get('/mail', [MailController::class, 'index'])->name('mail.index');
         Route::post('/mail', [MailController::class, 'send'])->name('mail.send');
