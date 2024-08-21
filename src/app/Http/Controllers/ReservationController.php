@@ -19,7 +19,7 @@ class ReservationController extends Controller
     }
 
     public function store(ReservationRequest $request)
-  {
+{
     $validated = $request->validated();
 
     // 予約を作成し、そのインスタンスを取得
@@ -29,38 +29,38 @@ class ReservationController extends Controller
         'reservation_date' => $request->input('date'),
         'reservation_time' => $request->input('time'),
         'number_of_people' => $request->input('number_of_people'),
-        // ここではQRコードの生成をまだ行わない
     ]);
 
-    // QRコードを生成するためのデータを作成
-    $data = [
-        'reservation_id' => $reservation->id,
-        'restaurant_id' => $request->input('restaurant_id'),
-        'date' => $request->input('date'),
-        'time' => $request->input('time'),
-    ];
-    
-    // JSON形式でデータをエンコード
-    $qrCodeData = json_encode($data);
+    // QRコードに埋め込むURLを生成
+    $url = route('reservation.check', ['reservation_id' => $reservation->id]);
 
     // QRコードを生成
-    $qrCode = QrCode::size(200)->generate($qrCodeData);
-
-    // QRコードを文字列として保存する
-    $qrCodeString = (string) $qrCode;
+    $qrCode = QrCode::size(200)->generate($url);
 
     // 予約情報を更新してQRコードを保存する
-    $reservation->update(['qr_code' => $qrCodeString]);
+    $reservation->update(['qr_code' => $qrCode]);
 
-    // ジョブをディスパッチし、予約のインスタンスを渡す
+    // 予約確認メールなどを送信するジョブをディスパッチ
     dispatch(new SendReservationDetails($reservation))
         ->delay(Carbon::parse($reservation->reservation_date)->setTime(9, 0));
 
+    // 成功時のレスポンスを返す
     return response()->json([
-            'success' => true,
-            'reservation_id' => $reservation->id,
-            'redirect_url' => route('payment.create', ['reservation_id' => $reservation->id]),
-        ]);
-  }
+        'success' => true,
+        'reservation_id' => $reservation->id,
+        'redirect_url' => route('payment.create', ['reservation_id' => $reservation->id]),
+    ]);
+}
+
+public function check($reservation_id)
+{
+    $reservation = Reservation::find($reservation_id);
+
+    if (!$reservation) {
+        return redirect()->route('store.reservations')->withErrors('予約が見つかりませんでした。');
+    }
+
+    return view('reservation-detail', compact('reservation'));
+}
 
 }

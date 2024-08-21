@@ -132,34 +132,45 @@ class StoreRepresentativeController extends Controller
     return redirect()->route('store.upload')->with('error', '画像が見つかりませんでした。');
 }
 
-    public function qrScan()
-    {
-        return view('store.qr-scan');
-    }
+
 
     public function checkReservation(Request $request)
-    {
-        $data = $request->input('qr_code_data'); // QRコードのデータを受け取る
+{
+    $data = $request->input('qr_code_data'); // QRコードのデータを受け取る
 
-        // デコードして予約IDを取得
-        $decodedData = json_decode($data, true);
-        $reservationId = $decodedData['reservation_id'];
+    // デコードして予約IDを取得
+    $decodedData = json_decode($data, true);
+    $reservationId = $decodedData['reservation_id'];
 
-        // 予約情報を取得
-        $reservation = Reservation::with('user', 'restaurant')->find($reservationId);
+    // 予約情報を取得
+    $reservation = Reservation::with('user', 'restaurant')->find($reservationId);
 
-        if ($reservation) {
-            return response()->json([
-                'status' => 'success',
-                'reservation' => $reservation
-            ]);
-        } else {
-            return response()->json([
-                'status' => 'error',
-                'message' => '予約情報が見つかりませんでした。'
-            ]);
-        }
+    if ($reservation) {
+        return response()->json([
+            'status' => 'success',
+            'reservation' => $reservation
+        ]);
+    } else {
+        return response()->json([
+            'status' => 'error',
+            'message' => '予約情報が見つかりませんでした。'
+        ]);
     }
+}
+
+public function checkReservationByQR(Request $request)
+{
+    $reservationId = $request->query('reservation_id');
+
+    // 予約情報を取得
+    $reservation = Reservation::with('user', 'restaurant')->find($reservationId);
+
+    if ($reservation) {
+        return view('store.reservation-detail', compact('reservation'));
+    } else {
+        return redirect()->route('store.dashboard')->with('error', '予約情報が見つかりませんでした。');
+    }
+}
 
    public function show($id)
     {
