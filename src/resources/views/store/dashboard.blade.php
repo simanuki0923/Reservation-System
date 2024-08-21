@@ -32,9 +32,6 @@
                     <td>
                         <a href="{{ route('mail.index') }}" class="btn btn-primary">メール送信</a>
                     </td>
-                    <td>
-                        <a href="{{ route('store.qr.scan') }}" class="btn btn-primary">QRコードスキャン</a>
-                    </td>
                 </tr>
                 <tr>
                     <td>

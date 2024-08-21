@@ -50,6 +50,7 @@ Route::middleware('auth')->group(function () {
 
     // 予約関連
     Route::post('/reservation', [ReservationController::class, 'store'])->name('reservation.store');
+    Route::get('/reservation/check/{reservation_id}', [ReservationController::class, 'check'])->name('reservation.check');
 
     // 決済関連
     Route::prefix('payment')->name('payment.')->group(function () {
@@ -109,10 +110,11 @@ Route::middleware('auth')->group(function () {
         Route::get('/mail', [MailController::class, 'index'])->name('mail.index');
         Route::post('/mail', [MailController::class, 'send'])->name('mail.send');
 
-        Route::get('/store/qr-scan', [StoreRepresentativeController::class, 'qrScan'])->name('store.qr.scan');
+
         Route::post('/store/check-reservation', [StoreRepresentativeController::class, 'checkReservation'])->name('store.check.reservation');
 
         Route::get('/store/reservations/{id}', [StoreRepresentativeController::class, 'show'])->name('store.reservation.detail');
+        Route::get('/store/reservation/check', [StoreRepresentativeController::class, 'checkReservationByQR'])->name('store.reservation.check');
 
         
 
