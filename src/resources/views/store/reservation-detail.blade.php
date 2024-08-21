@@ -47,12 +47,7 @@
                 <tr>
                     <th>QRコード</th>
                     <td class="qr-code">
-                        {!! QrCode::size(200)->generate(json_encode([
-                            'reservation_id' => $reservation->id,
-                            'restaurant_id' => $reservation->restaurant_id,
-                            'date' => $reservation->reservation_date,
-                            'time' => $reservation->reservation_time,
-                        ])) !!}
+                        {!! QrCode::size(200)->generate(route('store.reservation.check', ['reservation_id' => $reservation->id])) !!}
                     </td>
                 </tr>
             </table>
