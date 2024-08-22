@@ -10,20 +10,20 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header">{{ __('Verify Your Email Address') }}</div>
+                    <div class="card-header">{{ __('メールアドレスの確認') }}</div>
 
                     <div class="card-body">
                         @if (session('status') == 'verification-link-sent')
                             <div class="alert alert-success" role="alert">
-                                {{ __('A new verification link has been sent to the email address you provided during registration.') }}
+                                {{ __('新しい確認リンクが、登録時に提供したメールアドレスに送信されました。') }}
                             </div>
                         @endif
 
-                        <p>{{ __('Before proceeding, please check your email for a verification link.') }}</p>
-                        <p>{{ __('If you did not receive the email') }},
+                        <p>{{ __('続行する前に、メールで確認リンクを確認してください。') }}</p>
+                        <p>{{ __('もしメールを受け取っていない場合は') }},
                             <form method="POST" action="{{ route('verification.send') }}" style="display: inline;">
                                 @csrf
-                                <button type="submit" class="btn btn-link p-0 m-0 align-baseline">{{ __('click here to request another') }}</button>.
+                                <button type="submit" class="btn btn-link p-0 m-0 align-baseline">{{ __('こちらをクリックして再送信してください') }}</button>.
                             </form>
                         </p>
                     </div>
