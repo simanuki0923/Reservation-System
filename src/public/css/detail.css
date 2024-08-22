@@ -27,19 +27,17 @@ main {
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     padding: 20px;
-    /* Added padding to enhance the appearance */
+
 }
 
 .restaurant-details {
     background-color: #007bff;
-    /* Darker blue for restaurant details */
     color: #333;
-    /* Dark text color for restaurant details */
+
 }
 
 .restaurant-details .card {
     background-color: #ffffff;
-    /* White background for card */
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     overflow: hidden;
@@ -58,14 +56,14 @@ main {
     font-size: 1.5rem;
     font-weight: bold;
     color: #333;
-    /* Dark text color for title */
+
 }
 
 .card__overviewtext p {
     margin: 0;
     padding: 5px 0;
     color: #333;
-    /* Dark text color for overview text */
+
 }
 
 .reviews-container {
@@ -79,13 +77,12 @@ main {
 .review {
     min-width: 300px;
     background-color: #ffffff;
-    /* White background for reviews */
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     padding: 15px;
     box-sizing: border-box;
     color: #333;
-    /* Dark text color for reviews */
+
 }
 
 .review .rating {
@@ -95,12 +92,12 @@ main {
 
 .star {
     color: gray;
-    /* Default color for empty stars */
+
 }
 
 .star.filled {
     color: yellow;
-    /* Color for filled stars */
+
 }
 
 .review-btn-container {
@@ -110,7 +107,6 @@ main {
 
 .review-btn {
     background-color: hsl(231, 100%, 49%);
-    /* Darker blue for button */
     color: white;
     padding: 10px 20px;
     border-radius: 5px;
@@ -121,7 +117,7 @@ main {
 
 .review-btn:hover {
     background-color: hsl(231, 100%, 49%);
-    /* Even darker blue for hover */
+
 }
 
 .right-container {
@@ -130,9 +126,7 @@ main {
 
 .reservation-container {
     background-color: #007bff;
-    /* Blue background color */
     color: white;
-    /* White text color for reservation section */
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -145,12 +139,11 @@ main {
     margin-bottom: 20px;
     font-size: 24px;
     color: white;
-    /* White text color for heading */
+
 }
 
 .reservation-container .form-label {
     color: white;
-    /* White text color for form labels */
     display: block;
     margin-bottom: 5px;
 }
@@ -162,7 +155,6 @@ main {
     padding: 10px;
     border-radius: 5px;
     border: 1px solid #ccc;
-    /* Light border for form elements */
     box-sizing: border-box;
 }
 
@@ -170,7 +162,6 @@ main {
     margin-top: 20px;
     background-color: #00bfff;
     color: white;
-    /* White text color for reservation details */
     padding: 10px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -203,7 +194,7 @@ main {
     background-color: #0131f3;
 }
 
-/* Responsive design for tablets and smartphones */
+
 @media (max-width: 768px) {
     main {
         flex-direction: column;

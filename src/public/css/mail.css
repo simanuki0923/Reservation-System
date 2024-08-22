@@ -34,3 +34,32 @@ li {
     text-align: center;
     margin-top: 20px;
 }
+
+@media screen and (max-width: 768px) {
+    .container {
+        width: 100%;
+        padding: 15px;
+        border-radius: 5px;
+    }
+
+    h1 {
+        font-size: 1.5em;
+    }
+
+    p {
+        font-size: 1em;
+        margin-bottom: 8px;
+    }
+
+    .qr-code {
+        margin-top: 15px;
+    }
+
+    ul {
+        padding-left: 15px;
+    }
+
+    li {
+        margin: 3px 0;
+    }
+}

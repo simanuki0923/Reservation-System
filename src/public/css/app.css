@@ -177,3 +177,46 @@
     right: 11px;
     top: 16px;
 }
+
+@media screen and (max-width: 768px) {
+    .menu-btn {
+        top: 5px;
+        left: 5px;
+        height: 25px;
+        width: 25px;
+    }
+
+    .menu-btn span,
+    .menu-btn span:before,
+    .menu-btn span:after {
+        height: 2px;
+        width: 20px;
+    }
+
+    .menu-content ul {
+        padding: 50px 5px 0;
+    }
+
+    .menu-content ul li a {
+        font-size: 18px;
+        padding: 8px 10px;
+    }
+
+    .header__logo {
+        font-size: 24px;
+        margin-left: 10px;
+    }
+
+    .nav__item {
+        font-size: 2rem;
+        padding-bottom: 8px;
+    }
+
+    .menu-content ul li a::before,
+    .menu-content ul li button::before {
+        width: 5px;
+        height: 5px;
+        right: 8px;
+        top: 14px;
+    }
+}

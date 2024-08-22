@@ -78,14 +78,11 @@
     display: block;
     width: 100%;
     font-size: 20px;
-    /* Increased font size */
     color: blue;
-    /* Changed text color to blue */
     text-decoration: none;
-    /* Removed underline */
     padding: 9px 15px;
     text-align: center;
-    /* Centered text */
+
 }
 
 .menu-content ul li a::before {
@@ -107,14 +104,10 @@
 .header {
 
     display: flex;
-
     align-items: center;
-    /* Align items vertically */
-
     background-color: #edecec;
-    /* Background color for the header */
     padding: 10px 0;
-    /* Add padding to the header */
+
 }
 
 .header__logo {
@@ -123,7 +116,7 @@
     color: #3584bb;
     margin-left: 45px;
     margin-top: 0;
-    /* Adjust if needed */
+
 }
 
 .nav__item {
@@ -149,28 +142,21 @@
     padding: 0;
 }
 
-/* Style the button to match the link style */
 .nav__item-link {
     background: none;
     border: none;
     color: rgb(63, 90, 242);
-    /* Ensure the text color matches other links */
     text-decoration: none;
-    /* Remove underline */
     font-weight: bold;
-    /* Bold text */
     padding: 0;
-    /* Remove default button padding */
     cursor: pointer;
-    /* Change cursor to pointer */
+
 }
 
-/* Maintain hover effect consistency */
 .nav__item-link:hover {
     opacity: 0.8;
 }
 
-/* Additional styling to ensure layout consistency */
 .menu-content ul {
     padding: 70px 10px 0;
 }
@@ -184,14 +170,10 @@
     display: block;
     width: 100%;
     font-size: 20px;
-    /* Adjust font size if needed */
     color: rgb(63, 90, 242);
-    /* Match the color of other links */
     text-decoration: none;
-    /* Remove underline from links */
     padding: 9px 15px;
     text-align: center;
-    /* Center text */
 }
 
 .menu-content ul li a::before,
@@ -551,14 +533,11 @@ main {
             display: block;
             width: 100%;
             font-size: 20px;
-            /* Increased font size */
             color: blue;
-            /* Changed text color to blue */
             text-decoration: none;
-            /* Removed underline */
             padding: 9px 15px;
             text-align: center;
-            /* Centered text */
+
         }
     
         .menu-content ul li a::before {
@@ -579,15 +558,11 @@ main {
     
         .header {
     
-            display: flex;
-    
+            display: flex;    
             align-items: center;
-            /* Align items vertically */
-    
             background-color: #edecec;
-            /* Background color for the header */
             padding: 10px 0;
-            /* Add padding to the header */
+
         }
     
         .header__logo {
@@ -596,7 +571,7 @@ main {
             color: #3584bb;
             margin-left: 45px;
             margin-top: 0;
-            /* Adjust if needed */
+
         }
     
         .nav__item {
@@ -622,28 +597,20 @@ main {
             padding: 0;
         }
     
-        /* Style the button to match the link style */
         .nav__item-link {
             background: none;
             border: none;
             color: rgb(63, 90, 242);
-            /* Ensure the text color matches other links */
             text-decoration: none;
-            /* Remove underline */
             font-weight: bold;
-            /* Bold text */
             padding: 0;
-            /* Remove default button padding */
             cursor: pointer;
-            /* Change cursor to pointer */
         }
     
-        /* Maintain hover effect consistency */
         .nav__item-link:hover {
             opacity: 0.8;
         }
     
-        /* Additional styling to ensure layout consistency */
         .menu-content ul {
             padding: 70px 10px 0;
         }
@@ -657,14 +624,10 @@ main {
             display: block;
             width: 100%;
             font-size: 20px;
-            /* Adjust font size if needed */
             color: rgb(63, 90, 242);
-            /* Match the color of other links */
             text-decoration: none;
-            /* Remove underline from links */
             padding: 9px 15px;
             text-align: center;
-            /* Center text */
         }
     
         .menu-content ul li a::before,

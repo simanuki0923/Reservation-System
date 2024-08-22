@@ -78,43 +78,40 @@ h1 {
         margin: 20px auto;
         padding: 10px;
         box-shadow: none;
-        /* Optional: remove shadow on smaller screens */
+
     }
 
     h1 {
         font-size: 1.5em;
-        /* Reduce font size for smaller screens */
+
     }
 
     .table {
         font-size: 0.9em;
-        /* Adjust font size for table cells */
         overflow-x: auto;
-        /* Add horizontal scroll for tables if needed */
+
     }
 
     .table th,
     .table td {
         padding: 8px;
-        /* Reduce padding for table cells */
+
     }
 
     .qr-code {
         margin: 20px 0;
-        /* Adjust margin for QR code section */
+
     }
 
     .text-right {
         text-align: center;
-        /* Center-align text for smaller screens */
         margin-top: 10px;
-        /* Adjust margin */
+
     }
 
     .btn {
         padding: 8px 16px;
-        /* Adjust padding for buttons */
         font-size: 0.9em;
-        /* Adjust font size for buttons */
+
     }
 }

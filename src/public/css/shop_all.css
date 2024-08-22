@@ -140,62 +140,55 @@
 @media (max-width: 768px) {
     .container {
         justify-content: center;
-        /* Center content horizontally */
+
     }
 
     .row {
         justify-content: center;
-        /* Center content horizontally */
+
     }
 
     .search-bar {
         flex-direction: row;
-        /* Align items horizontally */
         justify-content: flex-start;
-        /* Align items to the start */
         padding: 10px;
-        /* Adjust padding for smaller screens */
     }
 
     .search-group {
         flex-direction: row;
-        /* Align items horizontally */
         width: 100%;
-        /* Ensure the search group takes full width */
         gap: 10px;
-        /* Adjust gap between items */
+
     }
 
     .search-group .form-control {
         flex: 1;
         min-width: 120px;
-        /* Adjust min-width for smaller screens */
+
     }
 
     .search-group .btn-primary {
         margin-left: 0;
-        /* Remove margin for better spacing */
+
     }
 
     .card {
         width: 100%;
-        /* Make cards responsive */
         max-width: 300px;
-        /* Limit max-width for cards */
+
     }
 
     .card__textbox {
         padding: 15px;
-        /* Adjust padding for smaller screens */
+
     }
 
     .btn-primary {
         font-size: 0.9rem;
-        /* Adjust font size for smaller screens */
+
     }
 
     .favorite-button {
         font-size: 0.9rem;
-        /* Adjust font size for smaller screens */
     }
 }

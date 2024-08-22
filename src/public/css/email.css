@@ -30,3 +30,30 @@ p {
     font-size: 12px;
     color: #999999;
 }
+
+@media screen and (max-width: 768px) {
+    body {
+        padding: 10px;
+    }
+
+    .container {
+        max-width: 100%;
+        padding: 15px;
+        border-radius: 3px;
+    }
+
+    h1 {
+        font-size: 16px;
+        margin-bottom: 15px;
+    }
+
+    p {
+        font-size: 13px;
+        margin-bottom: 8px;
+    }
+
+    .footer {
+        font-size: 11px;
+        margin-top: 15px;
+    }
+}
