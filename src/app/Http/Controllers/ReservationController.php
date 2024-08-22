@@ -22,7 +22,6 @@ class ReservationController extends Controller
 {
     $validated = $request->validated();
 
-    // 予約を作成し、そのインスタンスを取得
     $reservation = Reservation::create([
         'user_id' => Auth::id(),
         'restaurant_id' => $request->input('restaurant_id'),
@@ -31,20 +30,15 @@ class ReservationController extends Controller
         'number_of_people' => $request->input('number_of_people'),
     ]);
 
-    // QRコードに埋め込むURLを生成
     $url = route('reservation.check', ['reservation_id' => $reservation->id]);
 
-    // QRコードを生成
     $qrCode = QrCode::size(200)->generate($url);
 
-    // 予約情報を更新してQRコードを保存する
     $reservation->update(['qr_code' => $qrCode]);
 
-    // 予約確認メールなどを送信するジョブをディスパッチ
     dispatch(new SendReservationDetails($reservation))
         ->delay(Carbon::parse($reservation->reservation_date)->setTime(9, 0));
 
-    // 成功時のレスポンスを返す
     return response()->json([
         'success' => true,
         'reservation_id' => $reservation->id,

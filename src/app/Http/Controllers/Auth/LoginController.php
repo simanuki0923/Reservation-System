@@ -18,7 +18,6 @@ class LoginController extends Controller
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
 
-            // ユーザーがメール認証済みであるか確認
             $user = Auth::user();
             if (!$user->hasVerifiedEmail()) {
                 Auth::logout();

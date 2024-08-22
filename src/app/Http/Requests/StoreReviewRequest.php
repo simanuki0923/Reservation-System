@@ -27,7 +27,7 @@ class StoreReviewRequest extends FormRequest
             'restaurant_id' => 'required|exists:restaurants,id',
             'reservation_id' => 'nullable|exists:reservations,id',
             'rating' => 'required|integer|min:1|max:5',
-            'comment' => 'nullable|string|max:255', // 最大文字数を255に統一
+            'comment' => 'nullable|string|max:255',
         ];
     }
 
@@ -46,7 +46,7 @@ class StoreReviewRequest extends FormRequest
             'rating.min' => '評価は1以上でなければなりません。',
             'rating.max' => '評価は5以下でなければなりません。',
             'comment.string' => 'コメントは文字列でなければなりません。',
-            'comment.max' => 'コメントは255文字以内でなければなりません。', // 255文字に修正
+            'comment.max' => 'コメントは255文字以内でなければなりません。',
         ];
     }
 }

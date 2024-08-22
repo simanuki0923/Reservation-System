@@ -17,8 +17,6 @@
         @if (session('success'))
             <div class="alert alert-success">{{ session('success') }}</div>
         @endif
-
-        <!-- 更新ボタン用のフォーム -->
         <form method="POST" action="{{ route('admin.updateManager', $manager->id) }}">
             @csrf
             @method('PUT')
@@ -40,21 +38,16 @@
                     <option value="admin" {{ $manager->role == 'admin' ? 'selected' : '' }}>管理者</option>
                 </select>
             </div>
-
-            <!-- ボタン群を右寄せにするコンテナ -->
             <div class="buttons-container">
-                <!-- 更新ボタン -->
                 <button type="submit" class="btn btn-primary">更新</button>
             </div>
         </form>
-        <!-- 削除ボタン用のフォーム -->
         <div class="buttons-container">
             <form action="{{ route('admin.deleteManager', $manager->id) }}" method="POST">
                 @csrf
                 @method('DELETE')
                 <button type="submit" class="btn btn-danger">削除</button>
             </form>
-            <!-- 戻るボタン -->
         <div class="buttons-container">
             <a href="{{ route('admin.index') }}" class="btn btn-secondary">戻る</a>
         </div>

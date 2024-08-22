@@ -24,7 +24,6 @@ class SendReservationDetails implements ShouldQueue
     public function handle()
     {
         try {
-            // メールの送信
             Mail::to($this->reservation->user->email)
                 ->send(new ReservationConfirmation($this->reservation));
         } catch (\Exception $e) {

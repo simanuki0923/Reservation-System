@@ -39,7 +39,6 @@ class AdminLoginController extends Controller
         ]);
     }
 
-    // ログアウト処理
     public function destroy()
     {
         Auth::guard('admin')->logout();

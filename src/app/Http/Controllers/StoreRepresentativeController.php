@@ -84,10 +84,9 @@ class StoreRepresentativeController extends Controller
 
    public function destroy($id)
 {
-    // ストアの取得
+
     $store = Store::find($id);
 
-    // ストアが存在する場合のみ削除
     if ($store) {
         $store->delete();
         return redirect()->route('store.dashboard')->with('success', 'ストアが削除されました。');
@@ -98,8 +97,8 @@ class StoreRepresentativeController extends Controller
 
     public function uploadForm()
     {
-        $images = Image::all(); // 画像一覧を取得
-        return view('store.index', compact('images')); // ビューに画像一覧を渡す
+        $images = Image::all();
+        return view('store.index', compact('images'));
     }
 
     public function upload(UploadImageRequest $request)
@@ -120,10 +119,8 @@ class StoreRepresentativeController extends Controller
     $image = Image::find($id);
 
     if ($image) {
-        // Delete the image file from storage
         Storage::delete('public/images/' . $image->path);
         
-        // Delete the image record from the database
         $image->delete();
 
         return redirect()->route('store.upload')->with('success', '画像が削除されました。');
@@ -136,13 +133,11 @@ class StoreRepresentativeController extends Controller
 
     public function checkReservation(Request $request)
 {
-    $data = $request->input('qr_code_data'); // QRコードのデータを受け取る
+    $data = $request->input('qr_code_data');
 
-    // デコードして予約IDを取得
     $decodedData = json_decode($data, true);
     $reservationId = $decodedData['reservation_id'];
 
-    // 予約情報を取得
     $reservation = Reservation::with('user', 'restaurant')->find($reservationId);
 
     if ($reservation) {
@@ -162,7 +157,6 @@ public function checkReservationByQR(Request $request)
 {
     $reservationId = $request->query('reservation_id');
 
-    // 予約情報を取得
     $reservation = Reservation::with('user', 'restaurant')->find($reservationId);
 
     if ($reservation) {

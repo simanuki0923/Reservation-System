@@ -23,7 +23,7 @@ class AdminRequest extends FormRequest
      */
     public function rules()
     {
-        // ここにバリデーションルールを設定
+
         return [
             'name' => 'required|string|max:255|unique:admins,name,' . $this->id,
             'password' => 'nullable|string|min:5',
@@ -33,7 +33,7 @@ class AdminRequest extends FormRequest
 
     public function messages()
     {
-        // カスタムエラーメッセージ
+
         return [
             'name.required' => '名前は必須です。',
             'name.unique' => 'この名前は既に存在します。',

@@ -12,6 +12,6 @@ class Store extends Model
 
     public function reservations()
     {
-        return $this->hasMany(Reservation::class, 'store_id'); // 'store_id' は適切なカラム名に変更
+        return $this->hasMany(Reservation::class, 'store_id'); 
     }
 }
