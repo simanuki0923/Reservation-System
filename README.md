@@ -49,7 +49,7 @@
  ```
 
  ```php
- $ cd Reservation-System
+ $ cd Reservation-System/src
  $ docker compose up -d --build
  $ docker compose exec php bash
  ```
