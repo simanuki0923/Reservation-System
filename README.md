@@ -19,7 +19,11 @@
  学習した内容のアウトプットや自身でも検索能力向上も含めて作成しました。
 
  ## URL
+ 一般利用ログイン画面
  http://3.112.229.2
+
+ 管理者用ログイン画面
+ http://3.112.229.2/admin-login
  
  ## 機能一覧　
  ログイン機能　会員登録　ユーザー情報取得　ユーザー飲食店お気に入り一覧取得
@@ -73,12 +77,22 @@ $ sudo chmod -R 775 storage
 $ sudo chmod -R 775 bootstrap/cache
 ```
 
-## ダミーデータの説明
-### ユーザー一覧
+## 権限ユーザー作成
+### 管理画面ログインできるユーザー一覧
+
+src/database/seeders/AdminSeeder.phpにて作成
+
 1. 管理者　　　name: admin01
 2. 店舗代表者　name: admin02　
-3. ユーザー　　name: admin03 
-
+ 
 ※パスワードは全て"admin"でログインできます。
+
+### 一般画面ログインできるユーザー一覧
+
+src/database/seeders/UserTableSeeder.phpにて作成
+
+3. ユーザー　　email: admin@gmail.com
+
+※パスワードは全て"admin001"でログインできます。
 
 
