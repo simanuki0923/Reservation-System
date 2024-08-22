@@ -11,9 +11,6 @@
     @yield('css')
 </head>
 <body>
-    <header>
-        <div class="header__logo">Rese</div>
-    </header>
     <main>
          <form action="{{ url('mail') }}" method="POST">
     @csrf
