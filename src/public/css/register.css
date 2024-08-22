@@ -107,28 +107,24 @@ main {
         max-width: 50%;
         padding: 15px;
         box-shadow: 2px 2px 5px gray;
-        /* Restore box-shadow if it was removed */
         border: 1px solid #ddd;
-        /* Add a border for better visibility */
         margin: 0 auto;
     }
 
     .auth__header {
         font-size: 1.4rem;
         padding: 12px;
-        /* Adjust padding if needed */
+
     }
 
     .form__item {
         padding: 15px;
         border: 1px solid #ddd;
-        /* Add a border to the form item */
         border-radius: 8px;
     }
 
     .form__input-item {
         width: calc(100% - 20px);
-        /* Ensure input width is correct */
         font-size: 0.75rem;
     }
 
@@ -142,13 +138,11 @@ main {
         font-size: 0.8rem;
     }
 
-    /* Optional: Adjusting body margin for smaller screens */
     body {
         margin: 0;
         margin-left: 5px;
     }
 
-    /* Optional: Adjusting main content margin */
     main {
         padding: 0 10px;
     }

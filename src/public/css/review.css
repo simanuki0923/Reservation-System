@@ -82,54 +82,45 @@ button.btn.btn-primary {
     .container {
         width: 100%;
         max-width: 500px;
-        /* Increased max-width for larger width on mobile */
         padding: 20px;
-        /* Added padding for better spacing */
+
     }
 
     h1 {
-
-
         font-size: 24px;
-        /* Larger font size for better readability */
         margin-top: 20px;
-        /* Added margin for spacing */
     }
 
     .form-control {
         width: 100%;
         padding: 12px;
-        /* Increased padding for better usability */
         font-size: 16px;
-        /* Larger font size for readability */
+
     }
 
     select.form-control {
         width: 100%;
         padding: 12px;
-        /* Matching padding with other form controls */
         font-size: 16px;
-        /* Larger font size for consistency */
+
     }
 
     textarea.form-control {
         width: 100%;
         padding: 12px;
-        /* Increased padding for better usability */
         font-size: 16px;
-        /* Larger font size for consistency */
+
     }
 
     button.btn.btn-primary {
         font-size: 16px;
-        /* Larger font size for better readability */
         padding: 12px;
-        /* Larger padding for easier interaction */
+
     }
 
     body {
         margin: 0;
         padding: 0 15px;
-        /* Adjusted padding for better content alignment */
+
     }
 }

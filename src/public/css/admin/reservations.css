@@ -64,7 +64,6 @@ h1 {
     overflow-x: auto;
 }
 
-/* QRコードのサイズ調整 */
 .qr-code img {
     width: 20px;
     height: 20px;
