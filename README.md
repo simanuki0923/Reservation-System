@@ -93,6 +93,6 @@ src/database/seeders/UserTableSeeder.phpにて作成
 
 3. ユーザー　　email: admin@gmail.com
 
-※パスワードは全て"admin001"でログインできます。
+※パスワードは"admin001"でログインできます。
 
 
