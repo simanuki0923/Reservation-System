@@ -43,13 +43,9 @@
                 </tr>
             </tbody>
         </table>
-
-        <!-- ログアウトフォーム -->
         <form id="logout-form" action="{{ route('admin.logout') }}" method="POST" style="display: none;">
             @csrf
         </form>
-
-        <!-- 店舗情報が存在するかどうかのチェック -->
         @if($stores->isEmpty())
             <p>店舗情報はありません。</p>
         @else

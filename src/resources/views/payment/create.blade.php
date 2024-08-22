@@ -52,7 +52,6 @@
 
 <script src="https://js.stripe.com/v3/"></script>
 <script>
-    /* 基本設定*/
     const stripe_public_key = "{{ config('stripe.stripe_public_key') }}"
     const stripe = Stripe(stripe_public_key);
     const elements = stripe.elements();

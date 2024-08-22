@@ -25,7 +25,7 @@ class AdminSeeder extends Seeder
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
-            // 必要に応じて他の管理者データも追加
+
 
             [
                 'name' => 'admin02',
@@ -35,13 +35,7 @@ class AdminSeeder extends Seeder
                 'updated_at' => now(),
             ],
 
-            [
-                'name' => 'admin03',
-                'password' => Hash::make('admin'),
-                'role' => 'users',
-                'created_at' => now(),
-                'updated_at' => now(),
-            ],
+
         ]);
     }
 }
