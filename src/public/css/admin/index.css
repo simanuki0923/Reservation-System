@@ -1,0 +1,128 @@
+.container {
+    margin: 0 auto;
+    padding: 20px;
+    max-width: 1200px;
+}
+
+h1 {
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 1em;
+    border: none;
+    border-radius: 5px;
+    text-align: center;
+    text-decoration: none;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn-primary {
+    background-color: #007bff;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+}
+
+.btn-danger {
+    background-color: #dc3545;
+}
+
+.btn-danger:hover {
+    background-color: #c82333;
+}
+
+.manager-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.manager-table th,
+.manager-table td {
+    border: 1px solid #dee2e6;
+    padding: 10px;
+    text-align: left;
+}
+
+.manager-table th {
+    background-color: #f8f9fa;
+    font-weight: bold;
+}
+
+.manager-table tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.btn-sm {
+    padding: 5px 10px;
+    font-size: 0.875em;
+}
+
+.btn-secondary {
+    background-color: #6c757d;
+}
+
+.btn-secondary:hover {
+    background-color: #5a6268;
+}
+
+/* タブレット・スマートフォン用のレスポンシブデザイン */
+@media (max-width: 768px) {
+    .container {
+        padding: 10px;
+
+    }
+
+    h1 {
+        font-size: 1.5em;
+        margin-bottom: 15px;
+    }
+
+    .btn {
+        padding: 8px 16px;
+        font-size: 0.875em;
+
+    }
+
+    .manager-table {
+        font-size: 0.875em;
+
+    }
+
+    .manager-table th,
+    .manager-table td {
+        padding: 8px;
+
+    }
+
+    .manager-table thead {
+        display: block;
+
+    }
+
+    .manager-table tbody {
+        display: block;
+        overflow-x: auto;
+
+    }
+
+    .manager-table tr {
+        display: table;
+        width: 100%;
+        table-layout: fixed;
+
+    }
+
+    .manager-table th,
+    .manager-table td {
+        width: 150px;
+
+    }
+}

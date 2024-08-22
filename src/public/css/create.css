@@ -1,0 +1,93 @@
+.container {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.card {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+.card-header {
+    background-color: #f2f2f2;
+    color: black;
+    font-size: 1.25rem;
+    text-align: center;
+    padding: 10px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.card-body {
+    padding: 20px;
+}
+
+.form-control {
+    margin-bottom: 15px;
+    padding: 10px;
+    font-size: 1rem;
+    border-radius: 5px;
+    border: 1px solid #ced4da;
+    width: 100%;
+}
+
+.btn-primary,
+.btn-secondary {
+    background-color: #007bff;
+    border-color: #007bff;
+    color: #fff;
+    padding: 8px 12px;
+    font-size: 0.9rem;
+    border-radius: 5px;
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+    border-color: #0056b3;
+}
+
+.btn-secondary {
+    background-color: #6c757d;
+    border-color: #6c757d;
+}
+
+.btn-secondary:hover {
+    background-color: #5a6268;
+    border-color: #545b62;
+}
+
+/* レスポンシブデザイン */
+@media (max-width: 768px) {
+    .container {
+        padding: 10px;
+    }
+
+    .card {
+        border-radius: 5px;
+    }
+
+    .card-header {
+        font-size: 1rem;
+        padding: 8px;
+    }
+
+    .card-body {
+        padding: 15px;
+    }
+
+    .form-control {
+        padding: 8px;
+        font-size: 0.9rem;
+        border-radius: 3px;
+    }
+
+    .btn-primary,
+    .btn-secondary {
+        padding: 8px;
+        font-size: 0.9rem;
+        border-radius: 3px;
+    }
+}

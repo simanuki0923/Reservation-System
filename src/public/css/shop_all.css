@@ -1,0 +1,194 @@
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    margin: 0 auto;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.search-bar {
+    margin-bottom: 30px;
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: flex-end;
+}
+
+.search-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    align-items: center;
+}
+
+.search-group .form-control {
+    flex: 1;
+    min-width: 150px;
+    padding: 10px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    transition: border-color 0.3s;
+}
+
+.search-group .btn-primary {
+    flex-grow: 0;
+    margin-left: 2px;
+    background-color: #f8f9fa;
+    color: #fff;
+    border: 1px solid #ced4da;
+    padding: 8px 20px;
+    text-align: center;
+    font-size: 1rem;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card {
+    width: 250px;
+    height: auto;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, .2);
+    margin: 5px;
+}
+
+.card__imgframe {
+    width: 100%;
+    height: auto;
+}
+
+.card__textbox {
+    width: 100%;
+    height: auto;
+    padding: 20px 18px;
+    background: #fff;
+    box-sizing: border-box;
+}
+
+.card__textbox>*+* {
+    margin-top: 10px;
+}
+
+.card__titletext {
+    font-size: 20px;
+    font-weight: bold;
+    line-height: 125%;
+}
+
+.card__overviewtext {
+    font-size: 12px;
+    line-height: 150%;
+}
+
+.btn-group {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.btn-primary {
+    flex-grow: 1;
+    margin-right: 10px;
+    background-color: rgba(0, 123, 255, 0.8);
+    border: none;
+    padding: 10px 20px;
+    color: white;
+    text-align: center;
+    font-size: 1rem;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.favorite-button {
+    border: none;
+    padding: 10px 20px;
+    color: white;
+    text-align: center;
+    font-size: 1rem;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+    background-color: transparent;
+    outline: none;
+    box-shadow: none;
+}
+
+.iconheart_red,
+.iconheart_gray {
+    width: 30px;
+    height: 30px;
+    object-fit: contain;
+    background-color: #fff;
+    border: none;
+}
+
+/* タブレット・スマートフォン用のレスポンシブデザイン */
+@media (max-width: 768px) {
+    .container {
+        justify-content: center;
+
+    }
+
+    .row {
+        justify-content: center;
+
+    }
+
+    .search-bar {
+        flex-direction: row;
+        justify-content: flex-start;
+        padding: 10px;
+    }
+
+    .search-group {
+        flex-direction: row;
+        width: 100%;
+        gap: 10px;
+
+    }
+
+    .search-group .form-control {
+        flex: 1;
+        min-width: 120px;
+
+    }
+
+    .search-group .btn-primary {
+        margin-left: 0;
+
+    }
+
+    .card {
+        width: 100%;
+        max-width: 300px;
+
+    }
+
+    .card__textbox {
+        padding: 15px;
+
+    }
+
+    .btn-primary {
+        font-size: 0.9rem;
+
+    }
+
+    .favorite-button {
+        font-size: 0.9rem;
+    }
+}
