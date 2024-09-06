@@ -31,7 +31,6 @@ use App\Http\Controllers\PaymentController;
 */
 // 公開ルート
 Route::get('/shop_all', [RestaurantController::class, 'index'])->name('shop_all');
-Route::get('/favorite', [FavoriteController::class, 'index'])->name('favorite.index');
 Route::post('/favorites/toggle/{id}', [FavoriteController::class, 'toggle'])->name('favorites.toggle');
 
 // 認証関連のルート
