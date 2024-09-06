@@ -43,6 +43,12 @@ return [
             'password' => env('MAIL_PASSWORD'),
             'timeout' => null,
             'auth_mode' => null,
+            'stream' => [
+                'ssl' => [
+                    'allow_self_signed' => true, // 自己署名証明書を許可
+                    'verify_peer' => false, // 証明書の検証を無効化
+                ],
+            ],
         ],
 
         'ses' => [

@@ -48,8 +48,7 @@
  $ git clone https://github.com/simanuki0923/Reservation-System.git
  ```
 
- ```php
- $ cd Reservation-System/src
+ ```
  $ docker compose up -d --build
  $ docker compose exec php bash
  ```
@@ -61,7 +60,7 @@
 
  ### src上
  ```php
- $ cp .env
+ $ cp .env local .env
  ```
 
  ### PHPコンテナ内
